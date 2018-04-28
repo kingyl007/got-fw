@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<function xmlns="http://www.got-fw.com/schema/function"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.got-fw.com/schema/function http://www.got-fw.com/schema/function/function-1.0.xsd"
+	ref="default_function" title="日志" defaultView="grid">
+	<table name="GOT_LOG" deleteType="P">
+	</table>
+	<columns>
+		<column id="LOG_TIME" type="DATETIME" label="操作时间" />
+		<column id="ID" sortIndex="10" visible="false" />
+		<column id="IP" sortIndex="30" />
+		<column id="USER_ID" sortIndex="40" label="用户ID" toView="false" />
+		<column id="USER_NAME" sortIndex="45" label="用户" />
+		<column id="PROJECT_ID" sortIndex="50" toView="false" />
+		<column id="FUNCTION_ID" sortIndex="60" label="FunctionID" toView="false"/>
+		<column id="FUNCTION_NAME" sortIndex="60" label="功能名称"/>
+		<column id="VIEW_ID" sortIndex="70" label="ViewID" toView="false" />
+		<column id="VIEW_NAME" sortIndex="70" label="功能名称"  toView="false"/>
+		<column id="URL" sortIndex="80" toView="false"/>
+		<column id="LOG_DETAIL" sortIndex="90" label="详情" width="300"/>
+		<column field="_FW_ACTIONS" toView="false" />
+	</columns>
+	<views>
+		<grid>
+			<actions>
+				<action id="showImportInList" visible="false" />
+				<action id="searchList" label="搜索" group="searchGrp"
+					sortIndex="10" url="getGridData" />
+				<action id="searchListAdvanced" label="高级搜索" group="searchGrp"
+					sortIndex="20" visible="true" />
+				<action id="showCreateInList" visible="false" />
+				<action id="showEditInList" visible="false" />
+				<action id="deleteList" visible="false" />
+				<action id="showBatchCreateInList" visible="false" />
+				<action id="showBatchEditInList" visible="false" />
+				<action id="deleteBatchInList" visible="false" />
+			</actions>
+			<argument sortName="LOG_TIME" sortOrder="DESC" />
+		</grid>
+	</views>
+</function>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui>
+	<pages>
+		<login class="backrender/login.jsp" />
+		<main class="backrender/main.jsp" />
+		<list class="backrender/list.jsp" />
+		<tree class="backrender/tree.jsp" />
+		<treeList class="backrender/tree_list.jsp" />
+		<treegrid class="backrender/treegrid.jsp" />
+		<create class="backrender/create.jsp" />
+		<edit class="backrender/edit.jsp" />
+		<select class="backrender/list.jsp" />
+		<exportDialog class="backrender/export_dialog.jsp" />
+		<importDialog class="backrender/import_dialog.jsp" />
+		<printDialog class="backrender/print_dialog.jsp" />
+		<printPreviewDialog class="backrender/print_preview_dialog.jsp" />
+		<columnManageDialog class="backrender/column_manage_dialog.jsp" />
+		<right class="backrender/right_tree.jsp" />
+		
+	</pages>
+	<actions>
+		<login icon="" />
+		<showCreateInList icon="icon-add" /> 
+		<showEditInList icon="icon-edit" />
+		<deleteList icon="icon-remove" />
+		<showBatchCreateInList icon="icon-add" />
+		<showBatchEditInList icon="icon-edit" />
+		<deleteBatchInList icon="icon-remove" />
+		<showExportInList icon="icon-redo" />
+		<showImportInList icon="icon-add" />
+		<showPrintInList icon="icon-print" />
+		<searchList icon="icon-search" />
+		<searchListAdvanced icon="icon-search" />
+		
+		<showSelect icon="icon-func" />
+		
+		<showCreateChildInTree icon="icon-add" />
+		<showCreateSiblingInTree icon="icon-add" />
+		 
+		<showEditInTree icon="icon-edit" />
+		<deleteTreeNode icon="icon-remove" />
+		<deleteBatchTreeNode icon="icon-remove" />
+		<showExportInTree icon="icon-redo" />
+		<showImportInTree icon="icon-add" />
+		<showPrintInTree icon="icon-print" />
+		<searchTree icon="icon-search" />
+		
+		<saveCreate icon="icon-save" />
+		<saveEdit icon="icon-save" />
+	</actions>
+	
+	<columns>
+		<column type="DATETIME" ui="easyui-datetimebox" />
+		<column type="TIMESTAMP(6)" ui="easyui-datetimebox" />
+		<column type="DATE" ui="easyui-datebox" />
+	</columns>
+
+</ui>

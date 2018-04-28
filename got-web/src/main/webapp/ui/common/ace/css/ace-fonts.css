@@ -1,0 +1,13 @@
+/* included only when we don't want to use fonts from google server */
+@font-face {
+  font-family:Microsoft YaHei;
+  font-style: normal;
+  font-weight: 300;
+ 
+}
+@font-face {
+  font-family:Microsoft YaHei;
+  font-style: normal;
+  font-weight: 400;
+
+}

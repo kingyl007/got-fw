@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<function xmlns="http://www.got-fw.com/schema/function"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.got-fw.com/schema/function http://www.got-fw.com/schema/function/function-1.0.xsd"
+	defaultView="portal">
+	<views>
+		<portal title="工作台">
+			<actions>
+			</actions>
+		</portal>
+	</views>
+</function>

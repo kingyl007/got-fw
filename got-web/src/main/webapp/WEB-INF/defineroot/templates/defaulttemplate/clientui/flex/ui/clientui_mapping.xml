@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui>
+	<pages>
+		<login file="ui/flex/flex3.5/defaultui/Login.swf" />
+		<main file="ui/flex/flex3.5/defaultui/Main.swf" />
+		<list file="ui/flex/flex3.5/defaultui/List.swf" />
+		<grid file="ui/flex/flex3.5/defaultui/Grid.swf" />
+		<tree file="ui/flex/flex3.5/defaultui/Tree.swf" />
+		<treeList file="ui/flex/flex3.5/defaultui/TreeList.swf" />
+		<treegrid file="ui/flex/flex3.5/defaultui/TreeGrid.swf" />
+		<create file="ui/flex/flex3.5/defaultui/Create.swf" />
+		<edit file="ui/flex/flex3.5/defaultui/Edit.swf" />
+		<select file="ui/flex/flex3.5/defaultui/List.swf" />
+		<exportDialog file="ui/flex/flex3.5/defaultui/dialog/ExportDialog.swf" />
+		<importDialog file="ui/flex/flex3.5/defaultui/dialog/ImportDialog.swf" />
+		<printDialog file="ui/flex/flex3.5/defaultui/dialog/PrintDialog.swf" />
+		<printPreviewDialog file="ui/flex/flex3.5/defaultui/dialog/PrintPreviewDialog.swf" />
+		<selectColumnDialog file="ui/flex/flex3.5/defaultui/dialog/SelectColumnDialog.swf" />
+		<right class="right/right_tree.swf" />
+		
+	</pages>
+	<actions>
+	<!-- 不能与pages里节点同名，否则会覆盖 -->
+		<doLogin icon="icon-role" />
+		<showCreateInList icon="icon-add" /> 
+		<showEditInList icon="icon-edit" />
+		<deleteList icon="icon-remove" />
+		<showBatchCreateInList icon="icon-add" />
+		<showBatchEditInList icon="icon-edit" />
+		<deleteBatchInList icon="icon-remove" />
+		<showExportInList icon="icon-redo" />
+		<showImportInList icon="icon-add" />
+		<showPrintInList icon="icon-print" />
+		<searchList icon="icon-search" />
+		<searchListAdvanced icon="icon-search" />
+		
+		<showSelect icon="icon-func" />
+		
+		<showCreateChildInTree icon="icon-add" />
+		<showCreateSiblingInTree icon="icon-add" />
+		 
+		<showEditInTree icon="icon-edit" />
+		<deleteTreeNode icon="icon-remove" />
+		<deleteBatchTreeNode icon="icon-remove" />
+		<showExportInTree icon="icon-redo" />
+		<showImportInTree icon="icon-add" />
+		<showPrintInTree icon="icon-print" />
+		<searchTree icon="icon-search" />
+		
+		<saveCreate icon="icon-save" />
+		<saveEdit icon="icon-save" />
+	</actions>
+	
+	<columns>
+		<column type="DATETIME" ui="easyui-datetimebox" />
+		<column type="TIMESTAMP(6)" ui="easyui-datetimebox" />
+		<column type="DATE" ui="easyui-datebox" />
+	</columns>
+
+</ui>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<function xmlns="http://www.got-fw.com/schema/function"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.got-fw.com/schema/function http://www.got-fw.com/schema/function/function-1.0.xsd"
+	ref="default_function" title="角色">
+	<table name="GOT_ROLE" deleteType="P" />
+	<columns toUser="false">
+		<column id="ROLE_ID" sortIndex="10" label="ID" autoKey="GOT_ROLE_SEQ"
+			toUser="true" editable="false" />
+		<column id="ROLE_NAME" sortIndex="20" label="角色名" toUser="true" required="true"/>
+		<column id="DIGEST" sortIndex="30" label="权限摘要" toUser="true"
+			editable="false" visible="false">
+		</column>
+		<column id="DEFAULTHAVERIGHT" sortIndex="30" label="" visible="false" />
+		<column id="DEFAULTDATALEVEL" sortIndex="40" label="" visible="false" />
+		<column id="ISADMIN" sortIndex="50" label="" visible="false" />
+		<column id="CUSTOMER_ID" sortIndex="120" label="" visible="false" />
+		<column id="ROLE_TYPE" sortIndex="130" label="" visible="false" />
+		<column id="STATUS" sortIndex="140" label="" visible="false" />
+		<column id="REF_ROLE_ID" sortIndex="150" label="" visible="false" />
+	</columns>
+	<views>
+		<create>
+			<columns>
+				<column id="ROLE_ID" visible="false" />
+			</columns>
+		</create>
+		<grid>
+			<actions>
+				<action id="showUser" group="inList" label="用户" type="showSelect"
+					sortIndex="200">
+					<!-- selectThisKey:是当前表的列名 selectJoin:关联表表名 selectJoinThisKey:是关联表中对应当前表的列名 
+						selectJoinOtherKey:是关联表中对应另一表的的列名， selectOtherKey:是另一表中对应关联表的列名 -->
+					<argument selectFunction="users" selectView="select"
+						selectJoin="GOT_USERROLE" selectThisKey="ROLE_ID"
+						selectJoinThisKey="ROLE_ID" selectJoinOtherKey="USER_ID"
+						selectOtherKey="ID">
+					</argument>
+				</action>
+				<action id="showRight" group="inList" label="权限" click="showRightList"
+					sortIndex="100" type="showSelect">
+					<!-- selectThisKey:是当前表的列名 selectJoin:关联表表名 selectJoinThisKey:是关联表中对应当前表的列名 
+						selectJoinOtherKey:是关联表中对应另一表的的列名， selectOtherKey:是另一表中对应关联表的列名 -->
+					<argument selectFunction="rights" selectView="rightList"
+						selectJoin="GOT_PRIVILEGE" selectThisKey="ROLE_ID"
+						selectJoinThisKey="ROLE_ID" selectJoinOtherKey="RESOURCE_PKEY"
+						selectOtherKey="PKEY" selectField="HAVE_PRIVILEGE" selectedValue="1">
+					</argument>
+				</action>
+			</actions>
+		</grid>
+	</views>
+</function>

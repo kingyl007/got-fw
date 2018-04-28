@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="got-web" default="" basedir=".">
+	<property name="dir.projects" value="src/main/webapp/WEB-INF/defineroot/projects" />
+	<tstamp prefix="my">
+		<format property="now" pattern="yyyyMMddHHmmss" />
+	</tstamp>
+	<tstamp />
+	<propertyfile file="version_info.properties">
+		<entry key="build.major.number" type="int" value="1" pattern="0" />
+		<entry key="build.minor.number" type="int" value="0" pattern="0" />
+		<entry key="build.revision.number" type="int" value="0" pattern="0" />
+		<entry key="build.build.number" type="int" operation="+" value="1" pattern="0000" />
+		<entry key="build.build.time" type="date" value="now" pattern="yyyyMMddHHmmss" />
+	</propertyfile>
+
+	<target name="modifyVersion">
+		<property file="version_info.properties" />
+		<property name="build_version" value="${build.major.number}.${build.minor.number}.${build.revision.number}.${build.build.number}" />
+		<echo>current build version:${build_version}</echo>
+		<delete verbose="true">
+			<fileset dir="src/main/java" includes="version-*.properties" />
+		</delete>
+		<!-- Modify some property file 
+		-->
+		<propertyfile file="src/main/java/version-${build_version}.properties">
+			<entry key="version" type="string" value="${build_version}" />
+		</propertyfile>
+		<propertyfile file="src/main/java/version.properties">
+			<entry key="version" type="string" value="${build_version}" />
+			<entry key="time" type="date" value="now" pattern="yyyyMMddHHmmss" />
+		</propertyfile>
+
+		<!-- Modify some Html file 
+		<replaceregexp byline="true">
+			<regexp pattern="version=\d*" />
+			<substitution expression="version=${build.build.number}" />
+			<fileset file="html-template/index.template.html" />
+		</replaceregexp>
+		-->
+
+		<!-- Modify some AS file 
+		<replaceregexp byline="true">
+			<regexp pattern="public static const VERSION:String = &quot;.*&quot;;" />
+			<substitution expression="public static const VERSION:String = &quot;${build_version}&quot;;" />
+			<fileset file="flex-src/Version.as" />
+		</replaceregexp>
+		-->
+
+		<!-- Modify some JSP file 
+		<replaceregexp byline="true">
+			<regexp pattern="version:.*" />
+			<substitution expression="version:${build_version}" />
+			<fileset file="WebRoot/WEB-INF/fmpages/common/_version.html" />
+			<fileset file="WebRoot/WEB-INF/jsppages/common/_version.jsp" />
+		</replaceregexp>
+		-->
+	</target>
+
+
+	<target name="createProject">
+		<input message="请输入项目标识(文件夹名)[Please input *New* project id (Folder name)]:" addproperty="input.project.code" />
+		<input message="请输入项目**名称**(中文)[Please input project name(Maybe chinese)]:" addproperty="input.project.name" />
+		<available file="${dir.projects}/${input.project.code}" property="project_exist" />
+		<antcall target="createProject_already_exists">
+		</antcall>
+		<antcall target="createProject_not_exists">
+		</antcall>
+	</target>
+	<target name="createProject_already_exists" if="project_exist">
+		<echo>Project[${input.project.name}] already exists at ${dir.projects}/${input.project.code}</echo>
+	</target>
+	<target name="createProject_not_exists" unless="project_exist">
+		<echo>Now start create project[${input.project.name}] in ${dir.projects}/${input.project.code}</echo>
+		<echo>${input.project.name} ${input.project.code}</echo>
+		<copy todir="${dir.projects}/${input.project.code}" verbose="true" includeEmptyDirs="true">
+			<fileset dir="${dir.projects}/@PROTOTYPEID@" />
+			<filterset>
+				<filter token="PROTOTYPE" value="${input.project.name}" />
+				<filter token="PROTOTYPEID" value="${input.project.code}" />
+			</filterset>
+		</copy>
+		<move todir="${dir.projects}/${input.project.code}" verbose="true">
+			<fileset dir="${dir.projects}/${input.project.code}" />
+			<mapper>
+				<mapper type="regexp" from="(.*)@PROTOTYPEID@(.*)" to="\1${input.project.code}\2" />
+			</mapper>
+		</move>
+		<move todir="${dir.projects}/${input.project.code}" verbose="true">
+			<fileset dir="${dir.projects}/${input.project.code}" />
+			<mapper>
+				<mapper type="regexp" from="(.*)@PROTOTYPEID@(.*)" to="\1${input.project.code}\2" />
+			</mapper>
+		</move>
+
+		<move todir="${dir.projects}/${input.project.code}" verbose="true">
+			<fileset dir="${dir.projects}/${input.project.code}" />
+			<mapper>
+				<mapper type="regexp" from="(.*)@PROTOTYPE@(.*)" to="\1${input.project.name}\2" />
+			</mapper>
+		</move>
+		<move todir="${dir.projects}/${input.project.code}" verbose="true">
+			<fileset dir="${dir.projects}/${input.project.code}" />
+			<mapper>
+				<mapper type="regexp" from="(.*)@PROTOTYPE@(.*)" to="\1${input.project.name}\2" />
+			</mapper>
+		</move>
+		<propertyfile file="${dir.projects}/default.properties">
+				<entry key="default.project" type="string" value="${input.project.code}" />
+		</propertyfile>
+	</target>
+</project>

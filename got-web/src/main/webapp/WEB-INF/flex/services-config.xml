@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services-config>
+	<services>
+		<service-include file-path="messaging-config.xml" />
+	</services>
+	<security />
+	<channels>
+		<channel-definition id="my-stream-amf"
+			class="mx.messaging.channels.StreamingAMFChannel">
+			<endpoint
+				url="http://{server.name}:{server.port}/{context.root}/flex/messagebroker/streaming-amf"
+				class="flex.messaging.endpoints.StreamingAMFEndpoint" />
+				<!-- 
+			<properties>
+				<idle-timeout-minutes>10</idle-timeout-minutes>
+				<max-streaming-clients>60</max-streaming-clients>
+				<server-to-client-heartbeat-millis>5000
+				</server-to-client-heartbeat-millis>
+				<user-agent-settings>
+					<user-agent match-on="MSIE" kickstart-bytes="0"
+						max-streaming-connections-per-session="8" />
+					<user-agent match-on="Firefox" kickstart-bytes="0"
+						max-streaming-connections-per-session="8" />
+				</user-agent-settings>
+			</properties>
+				 -->
+		</channel-definition>
+		<channel-definition id="my-amf"
+			class="mx.messaging.channels.AMFChannel">
+			<endpoint
+				url="http://{server.name}:{server.port}/{context.root}/flex/messagebroker/amf"
+				class="flex.messaging.endpoints.AMFEndpoint" />
+		</channel-definition>
+	</channels>
+	<logging>
+		<target class="flex.messaging.log.ConsoleTarget" level="Error">
+			<properties>
+				<prefix>[BlazeDS] </prefix>
+				<includeDate>true</includeDate>
+				<includeTime>true</includeTime>
+				<includeLevel>true</includeLevel>
+				<includeCategory>true</includeCategory>
+			</properties>
+			<filters>
+				<!-- -->
+				<pattern>Endpoint.*</pattern>
+				<pattern>Service.*</pattern>
+				<pattern>Configuration</pattern>
+			</filters>
+		</target>
+	</logging>
+</services-config>

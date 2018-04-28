@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui>
+	<pages>
+		<login file="default/login.jsp" />
+		<main file="default/main.jsp" />
+		<list file="default/list.jsp" />
+		<grid file="default/grid.jsp" />
+		<tree file="default/tree.jsp" />
+		<treeList file="default/tree_list.jsp" />
+		<treegrid file="default/tree_grid.jsp" />
+		<create file="default/create.jsp" />
+		<edit file="default/edit.jsp" />
+		<select file="default/select.jsp" />
+		<export file="default/export_dialog.jsp" />
+		<import file="default/import_dialog.jsp" />
+		<printDialog file="default/print_dialog.jsp" />
+		<printPreviewDialog file="default/print_preview_dialog.jsp" />
+		<columnManage file="default/column_manage_dialog.jsp" />
+		<portal file="default/portal.jsp" />
+		<map file="default/mapdemo.jsp" />
+		<report file="default/report.jsp" />
+		<right file="right/right_tree.jsp" />
+		<rightList file="right/right_list.jsp" />
+		
+		<selectInMap file="default/select_in_map.jsp" />
+		
+		<detail file="default/detail.jsp" />
+	</pages>
+	<actions>
+	<!-- 不能与pages里节点同名，否则会覆盖 -->
+		<doLogin icon="icon-role" />
+		<showCreateInList icon="icon-add" /> 
+		<showEditInList icon="icon-edit" />
+		<deleteList icon="icon-remove" />
+		<showBatchCreateInList icon="icon-add" />
+		<showBatchEditInList icon="icon-edit" />
+		<deleteBatchInList icon="icon-remove" />
+		<showExportInList icon="icon-excel" />
+		<showImportInList icon="icon-import" />
+		<showPrintInList icon="icon-print" />
+		<searchList icon="icon-search" />
+		<searchListAdvanced icon="icon-search" />
+		
+		<showDetailInGrid icon="icon-tip" />
+		<filterWorkFlow icon="icon-filter" />
+		<startWorkFlowInGrid icon="icon-ok" />
+		<recallWorkFlowInGrid icon="icon-undo" />
+		<showWorkFlowCheckInGrid icon="icon-ok" />
+		<batchStartWorkFlowInGrid icon="icon-ok-all" />
+		<batchRecallWorkFlowInGrid icon="icon-undo-all" />
+		<showBatchWorkFlowCheckInGrid icon="icon-ok" />
+		
+		<showSelect icon="icon-func" />
+		
+		<showCreateChildInTree icon="icon-add" />
+		<showCreateSiblingInTree icon="icon-add" />
+		 
+		<showEditInTree icon="icon-edit" />
+		<deleteTreeNode icon="icon-remove" />
+		<deleteBatchTreeNode icon="icon-remove" />
+		<showExportInTree icon="icon-redo" />
+		<showImportInTree icon="icon-add" />
+		<showPrintInTree icon="icon-print" />
+		<showColumnManageInList icon="fwicon-columns" />
+		<searchTree icon="icon-search" />
+		
+		<saveCreate icon="icon-save" />
+		<saveEdit icon="icon-save" />
+	</actions>
+	
+	<columns>
+		<DATETIME type="DATETIME" ui="easyui-datetimebox" onFormat="datetimeFormatter" />
+		<TIMESTAMP type="TIMESTAMP(6)" ui="easyui-datetimebox"  onFormat="datetimeFormatter"/>
+		<DATE type="DATE" ui="easyui-datebox"  onFormat="dateFormatter"/>
+		<TREE ui="easyui-combotree" />
+		<FILE ui="easyui-filebox" />
+		<TIME ui="easyui-timespinner" />
+		<NUM ui="easyui-numberbox" />
+	</columns>
+	
+	<groups>
+		<searchGrp icon="icon-search" />
+		<batchOp icon="icon-search" />
+		<toolsGroup icon="icon-func" />
+	</groups>
+	
+	<icons>
+		<closedGroupCustomer icon="icon-customer-plus" />
+		<openedGroupCustomer icon="icon-customer-plus" />
+		<normalCustomer icon="icon-customer-yellow" />
+		
+		<emptyFolder icon="icon-folder" />
+		<folder icon="icon-folder-add" />
+		
+	</icons>
+	
+	<i18n>
+		<en_us ui="/ui/easyui/easyui1.4/locale/easyui-lang-en.js" />
+		<ja_jp ui="/ui/easyui/easyui1.4/locale/easyui-lang-jp.js" />
+		<zh_cn ui="/ui/easyui/easyui1.4/locale/easyui-lang-zh_CN.js" />
+	</i18n>
+	
+	<css>
+		
+	</css>
+</ui>

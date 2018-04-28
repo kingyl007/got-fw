@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui>
+	<pages>
+		<@PROTOTYPEID@DemoGrid file="@PROTOTYPEID@/demo_grid.jsp" />
+	</pages>
+
+	<actions>
+    	<@PROTOTYPEID@DemoButton icon="icon-ok" />
+	</actions>
+</ui>

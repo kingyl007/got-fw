@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="got-web">
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
+        <dependent-module archiveName="gotplatform-fw-jfinal-0.0.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/gotplatform-fw-jfinal/gotplatform-fw-jfinal">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="gotplatform-fw-0.0.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/gotplatform-fw/gotplatform-fw">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="gotplatform-core-0.0.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/gotplatform-core/gotplatform-core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="gotutil-xml-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/gotutil-xml/gotutil-xml">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="gotutil-excel-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/gotutil-excel/gotutil-excel">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="gotutil-http-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/gotutil-http/gotutil-http">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="gotutil-gis-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/gotutil-gis/gotutil-gis">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="gotutil-raw-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/gotutil-raw/gotutil-raw">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="gotutil-zip-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/gotutil-zip/gotutil-zip">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="gotutil-dbf-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/gotutil-dbf/gotutil-dbf">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="got-web"/>
+        <property name="java-output-path" value="/got-web/target/classes"/>
+    </wb-module>
+</project-modules>

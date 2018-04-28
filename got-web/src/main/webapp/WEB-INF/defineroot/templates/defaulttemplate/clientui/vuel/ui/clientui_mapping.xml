@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui>
+	<views>
+		<main file="default/main.jsp" />
+		<grid file="default/grid.jsp" />
+		<edit file="default/edit.jsp" />
+		<create file="default/create.jsp" />
+	</views>
+	<actions>
+	<!-- 不能与pages里节点同名，否则会覆盖 -->
+		<doLogin icon="icon-role" />
+		<showCreateInList icon="el-icon-circle-plus-outline" /> 
+		<showEditInList icon="el-icon-edit" />
+		<deleteList icon="el-icon-delete" />
+		<showBatchCreateInList icon="el-icon-circle-plus" />
+		<showBatchEditInList icon="el-icon-edit-outline" />
+		<deleteBatchInList icon="el-icon-delete" />
+		<showExportInList icon="fa fa-sign-out" />
+		<showImportInList icon="fa fa-sign-in" />
+		<showPrintInList icon="icon-print" />
+		<searchList icon="el-icon-search" />
+		<searchListAdvanced icon="el-icon-search" />
+		
+		<showDetailInGrid icon="icon-tip" />
+		<filterWorkFlow icon="icon-filter" />
+		<startWorkFlowInGrid icon="icon-ok" />
+		<recallWorkFlowInGrid icon="icon-undo" />
+		<showWorkFlowCheckInGrid icon="icon-ok" />
+		<batchStartWorkFlowInGrid icon="icon-ok-all" />
+		<batchRecallWorkFlowInGrid icon="icon-undo-all" />
+		<showBatchWorkFlowCheckInGrid icon="icon-ok" />
+		
+		<showSelect icon="icon-func" />
+		
+		<showCreateChildInTree icon="icon-add" />
+		<showCreateSiblingInTree icon="icon-add" />
+		 
+		<showEditInTree icon="icon-edit" />
+		<deleteTreeNode icon="icon-remove" />
+		<deleteBatchTreeNode icon="icon-remove" />
+		<showExportInTree icon="icon-redo" />
+		<showImportInTree icon="icon-add" />
+		<showPrintInTree icon="icon-print" />
+		<showColumnManageInList icon="fa fa-columns" />
+		<searchTree icon="icon-search" />
+		
+		<saveCreate icon="icon-save" />
+		<saveEdit icon="el-icon-edit" />
+	</actions>
+	
+	<columns>
+		<DATETIME type="DATETIME" ui="datetime" onFormat="datetimeFormatter" />
+		<TIMESTAMP type="TIMESTAMP(6)" ui="datetime"  onFormat="datetimeFormatter"/>
+		<DATE type="DATE" ui="date"  onFormat="dateFormatter"/>
+		<MEMO ui="textarea"/>
+		<TREE ui="easyui-combotree" />
+		<FILE ui="easyui-filebox" />
+		<TIME ui="easyui-timespinner" />
+		<NUM ui="easyui-numberbox" />
+	</columns>
+	
+	<groups>
+		<searchGrp icon="el-icon-search" />
+		<batchOp icon="el-icon-edit-outline" />
+		<toolsGroup icon="el-icon-menu" />
+	</groups>
+	
+	<icons>
+		<closedGroupCustomer icon="icon-customer-plus" />
+		<openedGroupCustomer icon="icon-customer-plus" />
+		<normalCustomer icon="icon-customer-yellow" />
+		
+		<emptyFolder icon="icon-folder" />
+		<folder icon="icon-folder-add" />
+		
+	</icons>
+	
+	<i18n>
+	</i18n>
+	
+	<css>
+		
+	</css>
+</ui>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<function default="login">
+	<columns>
+		<column id="CUSTOMER_ID" label="客户号" type="" required="true" />
+		<column id="USER_ACCOUNT" label="账号2" type="" required="true" />
+		<column id="PASSWORD" label="密码" type="password" required="true" />
+	</columns>
+	<pages>
+		<login title="登录">
+			<actions>
+				<action id="doLogin" label="登录2" />
+				<action id="closeLogin" label="关闭2" />
+			</actions>
+		</login>
+	</pages>
+</function>

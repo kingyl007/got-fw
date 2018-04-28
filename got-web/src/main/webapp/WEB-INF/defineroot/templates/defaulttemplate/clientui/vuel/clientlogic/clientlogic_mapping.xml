@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clientlogic>
+	<initList class="default/query_grid.js" />
+	<searchList class="default/query_grid.js" />
+	<showEditInList class="default/show_edit.js" />
+	<showCreateInList class="default/show_create.js" />
+	
+	<deleteList class="default/delete_single.js" />
+	<deleteBatchInList class="default/delete_batch.js" />
+</clientlogic>

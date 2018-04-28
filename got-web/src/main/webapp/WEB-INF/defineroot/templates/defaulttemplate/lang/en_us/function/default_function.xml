@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<function defaultView="grid">
+	<views>
+		<grid title="{function}列表" onQuery="initList">
+			<actions>
+				<action id="searchList" sortIndex="10" label="Search" />
+				<action id="searchListAdvanced" sortIndex="20" label="Advance Search" />
+				<action id="showCreateInList" sortIndex="30" label="Create" />
+				<action id="showEditInList" sortIndex="40" label="Edit" />
+				<action id="deleteList" sortIndex="50" label="Delete" />
+				<action id="showBatchCreateInList" sortIndex="60" label="Batch Create" />
+				<action id="showBatchEditInList" sortIndex="70" label="Batch Edit" />
+				<action id="deleteBatchInList" sortIndex="80" label="Batch Delete" />
+				<action id="showPrintInList" sortIndex="90" label="Print" />
+				<action id="showExportInList" sortIndex="100" label="Export" />
+				<action id="showImportInList" sortIndex="110" label="Import" />
+				<action id="showColumnManageInList" sortIndex="120" label="Column Manage" />
+				<group id="searchGrp" sortIndex="10" title="Search" />
+				<group id="batchOp" sortIndex="20" title="Batch Operate" />
+				<group id="toolsGroup" sortIndex="30" title="Tool" />
+			</actions>
+		</grid>
+		
+		<tree title="{function}" onQuery="initTree">
+			<actions>
+				<action id="searchTree" sortIndex="10" label="搜索" />
+				<action id="searchAllInTree" sortIndex="15" label="搜索全部" />
+				<action id="showCreateChildInTree" sortIndex="20" label="新建下级" />
+				<action id="showCreateSiblingInTree" sortIndex="30" label="新建同级" />
+				<action id="showEditInTree" sortIndex="40" label="编辑" />
+				<action id="deleteTreeNode" sortIndex="50" label="删除" />
+				<action id="deleteBatchTreeNode" sortIndex="60" label="批量删除" />
+				<action id="showExportInTree" sortIndex="70" label="导出" />
+				<action id="showImportInTree" sortIndex="80" label="导入" />
+				<group id="searchGrp" sortIndex="10" title="搜索" />
+				<group id="createGrp" sortIndex="20" title="新建" />
+				<group id="batchOp" sortIndex="30" title="批量操作" />
+				<group id="toolsGroup" sortIndex="40" title="工具" />
+			</actions>
+		</tree>
+		
+		<treeList title="{function}" onQuery="initTreeList">
+			<actions>
+				<group id="batchOp" title="批量操作" />
+				<group id="toolsGroup" title="工具" />
+				<group id="treeToolsGroup" title="工具" />
+
+				<action id="searchTree" label="搜索" group="tree" />
+				<action id="showCreateInTree" label="新建" group="tree" />
+				<action id="showEditInTree" label="编辑" group="tree" />
+				<action id="deleteTreeNode" label="删除" group="tree" />
+				<action id="deleteBatchTreeNode" label="批量删除" group="tree" />
+				<action id="showExportInTree" label="导出" group="treeToolsGroup" />
+				<action id="showImportInTree" label="导入" group="treeToolsGroup" />
+
+				<action id="searchList" label="搜索" />
+				<action id="showCreateInList" label="新建" />
+				<action id="showEditInList" label="编辑" group="inList" />
+				<action id="deleteList" label="删除" group="inList" />
+				<action id="showBatchCreateInList" label="批量新建" group="batchOp" />
+				<action id="showBatchEditInList" label="批量修改" group="batchOp" />
+				<action id="deleteBatchInList" label="批量删除" group="batchOp" />
+				<action id="showExportInList" label="导出" group="toolsGroup" />
+				<action id="showImportInList" label="导入" group="toolsGroup" />
+				<action id="showPrintInList" label="打印" group="toolsGroup" />
+				<action id="showColumnManageInList" label="列管理" group="toolsGroup" />
+			</actions>
+		</treeList>
+		
+		<create title="{function}新建" onInit="initCreate">
+			<actions>
+				<action id="saveCreate" sortIndex="" label="保存" />
+				<action id="return" sortIndex="" label="返回" />
+			</actions>
+		</create>
+		
+		<edit title="{function}编辑" onInit="initEdit">
+			<actions>
+				<action id="saveEdit" label="保存" group="notInDialog" />
+				<action id="return" label="返回" group="notInDialog" />
+			</actions>
+		</edit>
+		
+		<select title="{function}选择" onQuery="initSelect">
+			<actions>
+				<action id="searchList" type="searchSelect" label="搜索" />
+			</actions>
+		</select>
+		
+		<treegrid title="{function}" onQuery="initTreegrid">
+			<actions>
+				<group id="searchGrp" title="搜索" showDefault="true" />
+				<group id="createGrp" title="新建" showDefault="true" />
+				<group id="batchOp" title="批量操作" />
+				<group id="toolsGroup" title="工具" />
+
+				<action id="searchTree" label="搜索" />
+				<action id="showCreateChildInTree" label="新建下级" group="createGrp" />
+				<action id="showCreateSiblingInTree" label="新建同级" group="createGrp" />
+				<action id="showEditInTree" label="编辑" />
+				<action id="deleteTreeNode" label="删除" />
+				<action id="deleteBatchTreeNode" label="批量删除" group="batchOp" />
+				<action id="showExportInTree" label="导出" group="toolsGroup" />
+				<action id="showImportInTree" label="导入" group="toolsGroup" />
+			</actions>
+		</treegrid>
+
+		<right title="{function}" onQuery="initTreegrid">
+			<actions>
+				<group id="searchGrp" title="搜索" showDefault="true" />
+				<group id="toolsGroup" title="工具" />
+
+				<action id="searchTree" label="搜索" />
+				<action id="showExportInTree" label="导出" group="toolsGroup" />
+				<action id="showImportInTree" label="导入" group="toolsGroup" />
+			</actions>
+		</right>
+		
+		<rightList title="{function}">
+
+		</rightList>
+		
+		<map>
+
+		</map>
+		
+		<report onQuery="initList">
+			<actions>
+				<action id="searchList" sortIndex="10" label="搜索" />
+				<action id="showExportInList" sortIndex="" label="导出" />
+				<action id="showPrintInList" sortIndex="" label="打印" />
+				<action id="showColumnManageInList" sortIndex="" label="列管理" />
+				<group id="toolsGroup" sortIndex="40" title="工具" />
+			</actions>
+		</report>
+	</views>
+</function>

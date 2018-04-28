@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<function xmlns="http://www.got-fw.com/schema/function"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.got-fw.com/schema/function http://www.got-fw.com/schema/function/function-1.0.xsd"
+	title="主页" defaultView="main">
+	<views>
+		<main title="主页">
+			<actions type="mainOpen">
+				<group id="system_manager" title="系统管理" sortIndex="70" />
+
+				<action id="showChangePassword" toUser="false" />
+
+				<action id="role" label="角色管理" group="system_manager"
+					sortIndex="300">
+					<argument function="role" />
+				</action>
+				<action id="users" label="账号管理" group="system_manager"
+					sortIndex="310">
+					<argument function="users" />
+				</action>
+				<action id="logs" label="日志管理" group="system_manager"
+					sortIndex="320">
+					<argument function="logs" />
+				</action>
+			</actions>
+		</main>
+	</views>
+</function>

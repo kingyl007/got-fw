@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<function xmlns="http://www.got-fw.com/schema/function"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.got-fw.com/schema/function http://www.got-fw.com/schema/function/function-1.0.xsd"
+	ref="@PROTOTYPEID@_function" title="演示功能" defaultView="grid">
+	<table name="@PROTOTYPEID@_DEMO" />
+	<joins>
+		<join name="GOT_USER" type="INNER" alias="U" joinConditions="U.ID=MAIN.USER_ID">
+			<columns>
+				<column id="USER_NAME" field="NAME" toUser="false" /> 
+			</columns>
+		</join>
+	</joins>
+	<columns>
+		<column id="ID" editable="false" autoKey="@PROTOTYPEID@_DEMO_SEQ"/>
+		<column id="USER_ID" showColumn="USER_NAME">
+			<valueref function="users" view="select" label="NAME" value="ID"/>
+		</column>
+		<column id="DEMO_TYPE" dictionary="@PROTOTYPEID@_demo_dic" />
+	</columns>
+</function>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary xmlns="http://www.got-fw.com/schema/dictionary"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.got-fw.com/schema/dictionary http://www.got-fw.com/schema/dictionary/dictionary-1.0.xsd"
+	id="SEX" defaultValue="M">
+	<item label="男" value="M" />
+	<item label="女" value="F" />
+</dictionary>

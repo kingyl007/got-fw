@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary id="SEX" defaultValue="M">
+	<item label="Male" value="M" />
+	<item label="Female" value="F" />
+</dictionary>

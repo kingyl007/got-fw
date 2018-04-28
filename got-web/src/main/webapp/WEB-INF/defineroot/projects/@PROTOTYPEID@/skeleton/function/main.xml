@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<function xmlns="http://www.got-fw.com/schema/function"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.got-fw.com/schema/function http://www.got-fw.com/schema/function/function-1.0.xsd"
+	title="主画面" defaultView="main">
+	<views>
+		<main title="@PROTOTYPE@">
+			<actions>
+				<action id="@PROTOTYPEID@_demo" label="演示功能" group="system_manager"
+					sortIndex="10">
+					<argument function="@PROTOTYPEID@_demo" />
+				</action>
+			</actions>
+			<argument autoExtend="system_manager" autoOpen="@PROTOTYPEID@_demo" />
+		</main>
+	</views>
+</function>

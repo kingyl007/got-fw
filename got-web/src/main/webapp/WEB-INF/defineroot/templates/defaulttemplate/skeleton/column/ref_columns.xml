@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<columns>
+	<!-- 目前用onFormat来关联格式化函数，这里的formatter不再使用，同时这里的功能似乎与clientui_mapping重复，考虑如何处理两者的关系 -->
+	<column type="DATETIME" formatter="datetimeFormatter" />
+	<column type="DATE" formatter="dateFormatter" />
+	<column type="TIMESTAMP(6)" formatter="datetimeFormatter" />
+</columns>

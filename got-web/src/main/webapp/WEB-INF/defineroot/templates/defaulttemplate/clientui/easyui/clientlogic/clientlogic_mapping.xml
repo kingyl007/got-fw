@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clientlogic>
+	<default class="default/_default.js" />
+	<showMain class="default/show_main.js" />
+	<doLogin class="default/login.js" />
+	<initList class="default/init_list.js" />
+	<searchList class="default/query_grid.js" />
+	<searchListAdvanced class="default/_default.js" />
+	<showPrintInList class="default/_default.js" />
+	<showExportInList class="default/export.js" />
+	<showImportInList class="default/import.js" />
+	<showColumnManageInList class="default/show_column_manage.js" />
+	<showChangePassword class="default/show_change_password.js" />
+	
+	<showCreateInList class="default/show_create.js" />
+	<initCreate class="default/init_create.js" />
+	<saveCreate class="default/save_create.js" />
+	<showBatchCreateInList class="default/show_batch_create.js" />
+	
+	<showEditInList class="default/show_edit.js" />
+	<initEdit class="default/init_edit.js" />
+	<saveEdit class="default/save_edit.js" />
+	<showBatchEditInList class="default/show_batch_edit.js" />
+	
+	<deleteList class="default/delete_single.js" />
+	<deleteBatchInList class="default/delete_batch.js" />
+	
+	<showDetailInGrid class="workflow/show_detail_in_grid.js" />
+	
+	<startWorkFlowInGrid class="workflow/start_work_flow_in_grid.js" />
+	<recallWorkFlowInGrid class="workflow/recall_work_flow_in_grid.js" />
+	<showWorkFlowCheckInGrid class="workflow/show_work_flow_check_in_grid.js" />
+	<batchStartWorkFlowInGrid class="workflow/batch_start_work_flow_in_grid.js" />
+	<batchRecallWorkFlowInGrid class="workflow/batch_recall_work_flow_in_grid.js" />
+	<showBatchWorkFlowCheckInGrid class="workflow/show_batch_work_flow_check_in_grid.js" />
+	<processTodoInGrid class="workflow/process_todo_in_grid.js" />
+	
+	<initTree class="default/init_tree.js" />
+	<showCreateSiblingInTree class="default/show_create_sibling_in_tree.js" />
+	<showCreateChildInTree class="default/show_create_child_in_tree.js" />
+	<expandTreeNode class="default/expand_tree_node.js" />
+	<searchTree class="default/search_tree.js" />
+	<searchAllInTree class="default/search_all_in_tree.js" />
+	<showEditInTree class="default/show_edit_in_tree.js" />
+	<deleteTreeNode class="default/delete_single_in_tree.js" />
+	<deleteBatchTreeNode class="default/_default.js" />
+	<showExportInTree class="default/_default.js" />
+	<showImportInTree class="default/_default.js" />
+	
+	<initTreeList class="default/init_treelist.js" />
+	
+	<showSelect class="default/show_select.js" />
+	<initSelect class="default/init_select.js" />
+	
+	<showSelectInMap class="default/show_select_in_map.js" />
+	
+	<changeOneColumn class="default/edit_one_column.js" />
+	
+	<showRightList class="right/show_rightlist.js" />
+	
+	<initTreegrid class="default/init_treegrid.js" />
+	<saveSelect class="default/save_select.js" />
+	
+	<!--  Formatters.... -->
+	<datetimeFormatter class="default/formatter/datetime_formatter.js" />
+	<dateFormatter class="default/formatter/date_formatter.js" />
+	
+	<!-- Validator  -->
+	<demoValidator class="default/validator/demo_validator.js" />
+	
+</clientlogic>

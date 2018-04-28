@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary xmlns="http://www.got-fw.com/schema/dictionary"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.got-fw.com/schema/dictionary http://www.got-fw.com/schema/dictionary/dictionary-1.0.xsd"
+	id="DATA_LEVEL" defaultValue="">
+	<item label="全部" value="0" sortIndex="0" />
+	
+	<item label="所属客户" value="1" sortIndex="10" />
+	<item label="直接下级客户" value="2" sortIndex="20" />
+	<item label="所有下级客户" value="3" sortIndex="30" />
+	<item label="指定客户" value="9" sortIndex="40" />
+	
+	<!-- 暂时不启用部门 
+	<item label="所属部门" value="11" sortIndex="50" />
+	<item label="直接下级部门" value="12" sortIndex="60" />
+	<item label="所有下级部门" value="13" sortIndex="70" />
+	<item label="指定部门" value="19" sortIndex="80" />
+	 -->
+	
+	<!-- 本人的数据本人必然可以看到 
+	<item label="本人" value="21" sortIndex="90"/>
+	 -->
+	<item label="指定人员" value="29" sortIndex="100"/>
+</dictionary>

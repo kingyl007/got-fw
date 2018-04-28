@@ -1,0 +1,35 @@
+
+.icon-role{
+	background:url('icons/group_go.png') no-repeat center center;
+}
+.icon-func{
+	background:url('icons/cog.png') no-repeat center center;
+}
+
+.fwicon-project{
+	background:url('icons/project.gif') no-repeat center center;
+}
+.fwicon-group{
+	background:url('icons/group.gif') no-repeat center center;
+}
+.fwicon-function{
+	background:url('icons/function.gif') no-repeat center center;
+}
+.fwicon-page{
+	background:url('icons/page.gif') no-repeat center center;
+}
+.fwicon-action{
+	background:url('icons/action.gif') no-repeat center center;
+}
+.fwicon-columns{
+	background:url('icons/columns.gif') no-repeat center center;
+}
+.fwicon-column{
+	background:url('icons/column.gif') no-repeat center center;
+}
+.fwicon-property{
+	background:url('icons/property.gif') no-repeat center center;
+}
+.fwicon-datalevel{
+	background:url('icons/database_table.png') no-repeat center center;
+}

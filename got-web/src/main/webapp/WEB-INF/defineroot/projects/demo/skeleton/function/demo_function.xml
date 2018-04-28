@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<function xmlns="http://www.got-fw.com/schema/function"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.got-fw.com/schema/function http://www.got-fw.com/schema/function/function-1.0.xsd"
+	ref="default_function" title="默认Function">
+	<table deleteType="L" deleteCol="ISDEL" deletedValue="1"
+		updateTimeCol="UPDATE_TIME" updaterIdCol="UPDATE_ID" createTimeCol="CREATE_TIME"
+		createrIdCol="CREATE_ID" enableCol="IS_ENABLE" enableValue="1" />
+	<columns>
+		<column field="ISDEL" toUser="false" />
+		<column field="UPDATE_TIME" toUser="false" />
+		<column field="UPDATE_ID" toUser="false" />
+		<column field="CREATE_TIME" toUser="false" />
+		<column field="CREATE_ID" toUser="false" />
+		<column field="IS_ENABLE" toUser="false" />
+	</columns>
+	<views>
+		<grid uiType="demoDemoGrid">
+			<actions>
+				<action id="demo" label="演示" click="demoDemoLogic"
+					type="ttdemoDemoButton" sortIndex="500"></action>
+				<!-- <action id="setEnable" group="inList" label="启用" click="changeOneColumn" 
+					sortIndex="10"> -->
+				<!-- showByColumn:根据某一列的值显示，showValue:对应要显示按钮的值，showByEmpty:值为空时是否显示， 
+					setValue:操作后要设置的值， showInColumn:将按钮直接显示在对应的列里 -->
+				<!-- <argument showByColumn="IS_ENABLE" showValue="0" showByEmpty="1" 
+					setValue="1" showInColumn="false" /> </action> <action id="setDisable" group="inList" 
+					label="停用" click="changeOneColumn" sortIndex="20"> <argument showByColumn="IS_ENABLE" 
+					showValue="1" setValue="0" showInColumn="false" /> </action> -->
+			</actions>
+		</grid>
+		<create>
+			<argument IS_ENABLE="1" IS_DEL="0" />
+		</create>
+	</views>
+</function>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<function xmlns="http://www.got-fw.com/schema/function"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.got-fw.com/schema/function http://www.got-fw.com/schema/function/function-1.0.xsd"
+	defaultView="login">
+	<columns>
+		<column id="CUSTOMER_ID" label="客户号" type="" required="true"
+			size="10" sortIndex="10.0" />
+		<column id="USER_ACCOUNT" label="账号" type="" required="true"
+			sortIndex="20.0" />
+		<column id="PASSWORD" label="密码" type="password" required="true"
+			sortIndex="30.0" />
+	</columns>
+	<views>
+		<login title="登录">
+			<actions>
+				<action id="doLogin" label="登录" />
+			</actions>
+		</login>
+	</views>
+</function>

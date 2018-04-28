@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<function xmlns="http://www.got-fw.com/schema/function"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.got-fw.com/schema/function http://www.got-fw.com/schema/function/function-1.0.xsd"
+	ref="default_function" title="用户" bizService="userBizService">
+	<table name="GOT_USER">
+	</table>
+	<columns>
+		<column id="ID" sortIndex="10" label="ID" editable="false" />
+		<column id="NAME" sortIndex="20" label="用户名" required="true" />
+		<column id="USER_ACCOUNT" sortIndex="20" label="账号名" required="true"
+			unique="G" />
+		<column id="PASSWORD" sortIndex="30" label="密码" required="true"
+			toView="false" ui="password" />
+		<column id="CUSTOMER_ID" toUser="false" />
+		<column id="ISDEL" toUser="false" />
+		<column id="IS_ENABLE" toUser="false" />
+		<column id="DEPT_NAME" toUser="false" />
+		<column id="VALIDTO" toUser="false" />
+		<column id="ROLE_ID" toUser="false" />
+	</columns>
+	<views>
+		<grid>
+			<actions>
+
+				<action id="setEnable" group="inList" label="启用" click="changeOneColumn"
+					sortIndex="10">
+					<!-- showByColumn:根据某一列的值显示，showValue:对应要显示按钮的值，showByEmpty:值为空时是否显示， 
+						setValue:操作后要设置的值， showInColumn:将按钮直接显示在对应的列里 -->
+					<argument showByColumn="IS_ENABLE" showValue="0"
+						showByEmpty="1" setValue="1" showInColumn="true" />
+				</action>
+				<action id="setDisable" group="inList" label="停用"
+					click="changeOneColumn" sortIndex="20">
+					<argument showByColumn="IS_ENABLE" showValue="1" setValue="0"
+						showInColumn="true" />
+				</action>
+
+				<action id="showRole" group="inList" label="角色" type="showSelect"
+					sortIndex="200">
+					<!-- selectThisKey:是当前表的列名 selectJoin:关联表表名 selectJoinThisKey:是关联表中对应当前表的列名 
+						selectJoinOtherKey:是关联表中对应另一表的的列名， selectOtherKey:是另一表中对应关联表的列名 -->
+					<argument selectFunction="role" selectView="select"
+						selectJoin="GOT_USERROLE" selectThisKey="ID" selectJoinThisKey="USER_ID"
+						selectJoinOtherKey="ROLE_ID" selectOtherKey="ROLE_ID">
+					</argument>
+				</action>
+				<action id="showRight" group="inList" label="权限" click="showRightList"
+					sortIndex="300" type="showSelect">
+					<!-- selectThisKey:是当前表的列名 selectJoin:关联表表名 selectJoinThisKey:是关联表中对应当前表的列名 
+						selectJoinOtherKey:是关联表中对应另一表的的列名， selectOtherKey:是另一表中对应关联表的列名 -->
+					<argument selectFunction="rights" selectView="rightList"
+						selectJoin="GOT_PRIVILEGE" selectThisKey="ROLE_ID"
+						selectJoinThisKey="ROLE_ID" selectJoinOtherKey="RESOURCE_PKEY"
+						selectOtherKey="PKEY" selectField="HAVE_PRIVILEGE" selectedValue="1" canSave="false">
+					</argument>
+				</action>
+			</actions>
+		</grid>
+		<select>
+			<argument sortName="ID" sortOrder="DESC" />
+		</select>
+		<create>
+			<columns>
+				<column id="PASSWORD" toView="true" />
+			</columns>
+			<argument PASSWORD="321321" CUSTOMER_ID="{customerId}"
+				ISDEL="0" IS_ENABLE="1" />
+		</create>
+		<edit>
+			<columns>
+				<column id="PASSWORD" toView="true" />
+			</columns>
+		</edit>
+	</views>
+</function>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<function xmlns="http://www.got-fw.com/schema/function"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.got-fw.com/schema/function http://www.got-fw.com/schema/function/function-1.0.xsd"
+	ref="default_function" title="权限" bizService="privilegeService">
+	<table name="RIGHTS" />
+	<columns>
+		<column id="DATA_LEVEL" dictionary="DATA_LEVEL" fromDb="false"
+			toView="false" />
+	</columns>
+	<views>
+		<grid>
+			<actions>
+				<action id="showRole" group="inList" label="角色" type="showSelect">
+					<!-- selectThisKey:是当前表的列名 selectJoin:关联表表名 selectJoinThisKey:是关联表中对应当前表的列名 
+						selectJoinOtherKey:是关联表中对应另一表的的列名， selectOtherKey:是另一表中对应关联表的列名 -->
+					<argument selectFunction="role" selectView="select"
+						selectJoin="ROLE_RIGHT" selectThisKey="ID" selectJoinThisKey="RIGHT_ID"
+						selectJoinOtherKey="ROLE_ID" selectOtherKey="ID" selectField="IS_ENABLE"
+						selectedValue="1">
+					</argument>
+				</action>
+			</actions>
+		</grid>
+	</views>
+</function>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui>
+	<pages>
+		<login class="default/login.jsp" />
+		<main class="default/main.jsp" />
+		<list class="default/list.jsp" />
+		<tree class="default/tree.jsp" />
+		<create class="default/create.jsp" />
+		<edit class="default/edit.jsp" />
+		<exportDialog class="default/exportDialog.jsp" />
+		<importDialog class="default/importDialog.jsp" />
+		<printDialog class="default/printDialog.jsp" />
+		<printPreviewDialog class="default/printPreviewDialog.jsp" />
+		<columnManageDialog class="default/columnManageDialog.jsp" />
+		<right class="rightext/extRight.jsp" />
+	</pages>
+</ui>

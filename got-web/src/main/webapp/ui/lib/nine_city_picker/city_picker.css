@@ -1,0 +1,162 @@
+.provinceCity {
+	Z-INDEX: 2; POSITION: absolute; WIDTH: 304px; BACKGROUND: #f3f3f3; FONT-SIZE: 12px
+}
+.provinceCity DL {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; LIST-STYLE-IMAGE: none; PADDING-TOP: 0px
+}
+OL {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; LIST-STYLE-IMAGE: none; PADDING-TOP: 0px
+}
+DT {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; LIST-STYLE-IMAGE: none; PADDING-TOP: 0px
+}
+DD {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; LIST-STYLE-IMAGE: none; PADDING-TOP: 0px
+}
+UL {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; LIST-STYLE-IMAGE: none; PADDING-TOP: 0px
+}
+LI {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; LIST-STYLE-IMAGE: none; PADDING-TOP: 0px
+}
+.provinceCity .tabs {
+	BORDER-BOTTOM: #323055 2px solid; BACKGROUND: url(../images/bg_mc_0113_1.png) no-repeat; HEIGHT: 28px
+}
+.provinceCity .tabs LI {
+	WIDTH: 76px; FLOAT: left; HEIGHT: 28px
+}
+.provinceCity .tabs LI A {
+	TEXT-ALIGN: center; LINE-HEIGHT: 28px; WIDTH: 76px; DISPLAY: block; BACKGROUND:blue; FLOAT: left; HEIGHT: 28px; COLOR: #777777; TEXT-DECORATION: none
+}
+.provinceCity .tabs LI A:visited {
+	TEXT-ALIGN: center; LINE-HEIGHT: 28px; WIDTH: 76px; DISPLAY: block; BACKGROUND: blue; FLOAT: left; HEIGHT: 28px; COLOR: #777777; TEXT-DECORATION: none
+}
+.provinceCity .tabs LI A.current {
+	BACKGROUND: #000000; COLOR: #fff
+}
+.provinceCity .tabs LI A.current:visited {
+	BACKGROUND: #000000; COLOR: #fff
+}
+.provinceCity .con {
+	BORDER-BOTTOM: #d6d6d6 1px solid; BORDER-LEFT: #d6d6d6 1px solid; PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; HEIGHT: 110px; BORDER-TOP: medium none; BORDER-RIGHT: #d6d6d6 1px solid; PADDING-TOP: 10px
+}
+.provinceCity .province .list {
+	MARGIN: auto; WIDTH: 100%; FLOAT: left
+}
+.provinceCity .province .list LI {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 3px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; DISPLAY: inline; MARGIN-LEFT: 1px; OVERFLOW: hidden; MARGIN-RIGHT: 1px; PADDING-TOP: 3px
+}
+.provinceCity .province .list LI A {
+	COLOR: #777777; TEXT-DECORATION: none
+}
+.provinceCity .province .list LI A:visited {
+	COLOR: #777777; TEXT-DECORATION: none
+}
+.provinceCity .province .list LI A.current {
+	COLOR: #ff6c00
+}
+.provinceCity .province .list LI A.current:visited {
+	COLOR: #ff6c00
+}
+.provinceCity .city {
+	MARGIN: auto; WIDTH: 284px; FLOAT: left
+}
+.provinceCity .city LI {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 3px; PADDING-LEFT: 0px; WIDTH: 69px; PADDING-RIGHT: 0px; FLOAT: left; OVERFLOW: hidden; PADDING-TOP: 3px
+}
+.provinceCity .city LI A {
+	COLOR: #777777
+}
+.provinceCity .city LI A:visited {
+	COLOR: #777777
+}
+.provinceCity .city LI A.current {
+	COLOR: #ff6c00
+}
+.provinceCity .city LI A.current:visited {
+	COLOR: #ff6c00
+}
+.provinceCity .county {
+	MARGIN: auto; WIDTH: 284px; FLOAT: left
+}
+.provinceCity .county LI {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 3px; PADDING-LEFT: 0px; WIDTH: 69px; PADDING-RIGHT: 0px; FLOAT: left; OVERFLOW: hidden; PADDING-TOP: 3px
+}
+.provinceCity .county LI A {
+	COLOR: #777777
+}
+.provinceCity .city LI A:visited {
+	COLOR: #777777
+}
+.provinceCity .county LI A.current {
+	COLOR: #ff6c00
+}
+.provinceCity .city LI A.current:visited {
+	COLOR: #ff6c00
+}
+.provinceCity {
+	Z-INDEX: 2
+}
+.provinceCity .city .list LI {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 3px; PADDING-LEFT: 0px; WIDTH: 76px; PADDING-RIGHT: 0px; FLOAT: left; OVERFLOW: hidden; PADDING-TOP: 3px
+}
+.provinceCity .city .list LI A INPUT {
+	COLOR: #777777
+}
+.provinceCity .city .list LI A INPUT:visited {
+	COLOR: #777777
+}
+.provinceCity .city .list LI A INPUT.current {
+	COLOR: #ff6c00
+}
+.provinceCity .city .list LI A INPUT.current:visited {
+	COLOR: #ff6c00
+}
+.provinceCity .hotCity {
+	MARGIN: auto; WIDTH: 284px; FLOAT: left
+}
+.provinceCity .hotCity LI {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 3px; PADDING-LEFT: 0px; WIDTH: 69px; PADDING-RIGHT: 0px; FLOAT: left; OVERFLOW: hidden; PADDING-TOP: 3px
+}
+.provinceCity .hotCity LI A INPUT {
+	COLOR: #777777
+}
+.provinceCity .hotCity LI A:visited {
+	COLOR: #777777
+}
+.provinceCity .hotCity LI A INPUT.current {
+	COLOR: #ff6c00
+}
+.provinceCity .hotCity LI A INPUT.current:visited {
+	COLOR: #ff6c00
+}
+.provinceCity .county .list {
+	MARGIN: auto; WIDTH: 225px; FLOAT: left
+}
+.provinceCity .county .list LI {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 3px; PADDING-LEFT: 0px; WIDTH: 76px; PADDING-RIGHT: 0px; FLOAT: left; OVERFLOW: hidden; PADDING-TOP: 3px
+}
+.provinceCity .county .list LI A INPUT {
+	COLOR: #777777
+}
+.provinceCity .province .list LI A INPUT:visited {
+	COLOR: #777777
+}
+.provinceCity .county .list LI A INPUT.current {
+	COLOR: #ff6c00
+}
+.provinceCity .province .list LI A INPUT.current:visited {
+	COLOR: #ff6c00
+}
+.provinceCity .tabs LI A.current {
+	width:76px; margin:0; padding:0; float:left; text-align:center; line-height:30px; background:#FF6A00; color:#FFF; text-decoration:none;
+}
+.provinceCity .tabs LI {
+ margin:0; padding:0; overflow:hidden; border-bottom:3px solid #FF6A00; }
+.provinceCity .tabs LI A {
+ width:76px; margin:0; padding:0; float:left; text-align:center; line-height:30px; background:url(../img/search_title_bg.jpg) no-repeat; color:#333; text-decoration:none;
+ }
+ .provinceCity .province LI  {
+	width:65px; margin:0; padding:0; float:left;list-style:none; display:block; text-align:center;
+ }
+ .provinceCity .province LI A { color:#333; text-decoration:none;}

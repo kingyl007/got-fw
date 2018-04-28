@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+	<action type="doLogin" click="doLogin" />
+	<!-- list page actions -->
+	<action type="showMain" click="showMain" />
+	<action type="searchList" click="searchList" />
+	<action type="searchListAdvanced" click="searchListAdvanced" />
+
+	<action type="showCreateInList" click="showCreateInList" />
+	<action type="saveCreate" click="saveCreate" />
+
+	<action type="showEditInList" click="showEditInList" />
+	<action type="saveEdit" click="saveEdit" />
+
+	<action type="deleteList" click="deleteList" />
+	<action type="deleteBatchInList" click="deleteBatchInList" />
+	<action type="showBatchCreateInList" click="showBatchCreateInList" />
+	<action type="showBatchEditInList" click="showBatchEditInList" />
+
+	<action type="showColumnManageInList" click="showColumnManageInList" />
+
+	<action type="showChangePassword" click="showChangePassword" />
+
+	<action type="showExportInList" click="showExportInList" />
+	<action type="export" click="export" />
+
+	<action type="showImportInList" click="showImportInList" />
+	<action type="import" click="import" />
+
+	<action type="showPrintInList" click="showPrintInList" />
+	<action type="print" click="print" />
+
+	<action type="showSelect" click="showSelect" />
+	<action type="searchSelect" click="searchList" />
+
+	<action type="showSelectInMap" click="showSelectInMap" />
+
+	<action type="showDetailInGrid" click="showDetailInGrid" />
+	
+	<action type="startWorkFlowInGrid" click="startWorkFlowInGrid" />
+	<action type="recallWorkFlowInGrid" click="recallWorkFlowInGrid" />
+	<action type="showWorkFlowCheckInGrid" click="showDetailInGrid" />
+	<action type="batchStartWorkFlowInGrid" click="batchStartWorkFlowInGrid" />
+	<action type="batchRecallWorkFlowInGrid" click="batchRecallWorkFlowInGrid" />
+	<action type="showBatchWorkFlowCheckInGrid" click="showBatchWorkFlowCheckInGrid" />
+
+	<!-- tree page actions -->
+	<action type="searchTree" click="searchTree" />
+	<action type="searchTreeAdvanced" click="searchTreeAdvanced" />
+
+	<action type="showCreateChildInTree" click="showCreateChildInTree" />
+	<action type="showCreateSiblingInTree" click="showCreateSiblingInTree" />
+	<action type="saveCreate" click="saveCreate" />
+
+	<action type="showEditInTree" click="showEditInTree" />
+	<action type="saveEdit" click="saveEdit" />
+
+	<action type="deleteTreeNode" click="deleteTreeNode" />
+	<action type="deleteBatchTreeNode" click="deleteBatchTreeNode" />
+
+	<action type="showExportInTree" click="showExportInTree" />
+	<action type="export" click="export" />
+
+	<action type="showImportInTree" click="showImportInTree" />
+	<action type="import" click="import" />
+
+	<action type="showPrintInTree" click="showPrintInTree" />
+	<action type="print" click="print" />
+
+	<action type="openDialog" click="openDialog" />
+	<action type="closeDialog" click="closeDialog" />
+	<action type="submitDialog" click="submitDialog" />
+
+</actions>

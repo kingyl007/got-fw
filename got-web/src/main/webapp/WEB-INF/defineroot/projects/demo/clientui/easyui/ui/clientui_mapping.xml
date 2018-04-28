@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui>
+	<pages>
+		<demoDemoGrid file="demo/demo_grid.jsp" />
+	</pages>
+
+	<actions>
+    	<demoDemoButton icon="icon-ok" />
+	</actions>
+</ui>

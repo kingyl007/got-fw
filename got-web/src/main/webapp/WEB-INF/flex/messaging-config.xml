@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service id="message-service" class="cn.got.platform.fw.jfinal.web.flex.GotMessageService">
+	<adapters>
+		<adapter-definition id="actionscript"
+			class="flex.messaging.services.messaging.adapters.ActionScriptAdapter"
+			default="true" />
+		<adapter-definition id="jms"
+			class="flex.messaging.services.messaging.adapters.JMSAdapter" />
+	</adapters>
+	<default-channels>
+		<channel ref="my-stream-amf" />
+		<channel ref="my-amf" />
+	</default-channels>
+</service>
