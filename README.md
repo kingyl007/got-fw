@@ -26,8 +26,8 @@ a framework for rapid business develop
 
 #### 项目启动
 
-1. 可以通过ant脚本创建新项目，目前已经创建了示例项目(demo)，所有项目保存在<projectRoot>/src/main/webapp/WEB-INF/defineroot/projects目录下，以demo项目为例(demo项目根目录在<projectRoot>/src/main/webapp/WEB-INF/defineroot/projects/demo，以下称为<DemoRoot>：
-2. 修改<DemoRoot>/default.properties中的数据库连接,目前项目支持mysql和oracle，其中mysql需要指定catalog，oracle需要指定schema：
+1. 可以通过ant脚本创建新项目，目前已经创建了示例项目(demo)，所有项目保存在[projectRoot]/src/main/webapp/WEB-INF/defineroot/projects目录下，以demo项目为例(demo项目根目录在[projectRoot]/src/main/webapp/WEB-INF/defineroot/projects/demo，以下称为[DemoRoot]：
+2. 修改[DemoRoot]/default.properties中的数据库连接,目前项目支持mysql和oracle，其中mysql需要指定catalog，oracle需要指定schema：
 ```
 jdbc.driverClass=com.mysql.jdbc.Driver
 jdbc.url=jdbc:mysql://192.168.10.71/got_demo?useUnicode=true&characterEncoding=utf-8&generateSimpleParameterMetadata=true&zeroDateTimeBehavior=convertToNull
@@ -36,14 +36,14 @@ jdbc.password=258369
 catalog=got_demo
 schema=
 ```
-3. 找到<DemoRoot>/db/目录下对应的数据库初始化脚本，按序号执行创建框架基础表，框架基础表都是以GOT_开头。
+3. 找到[DemoRoot]/db/目录下对应的数据库初始化脚本，按序号执行创建框架基础表，框架基础表都是以GOT_开头。
 4. 因为JFinal在开发环境下可以用内建Jetty服务器启动，所以找到项目中的DemoConfig，以Java Application运行即可，默认端口为8080。
 5. 浏览器访问http://localhost:8080，正常情况可以显示登录页面，在登录页面中输入用户名/密码 admin/nimda，登录成功，显示主界面。
 
 
 #### 新模块开发说明
 
-1. 增加function文件，保存路径为<DemoRoot>/skeleton/function，可以创建子目录，分类保存（分类保存仅便于管理，不具有分组意义）。但必需保证文件名在function所有目录下唯一。
+1. 增加function文件demo_demo.xml，保存路径为[DemoRoot]/skeleton/function，可以创建子目录，分类保存（分类保存仅便于管理，不具有分组意义）。但必需保证文件名在function所有目录下唯一。
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <function xmlns="http://www.got-fw.com/schema/function"
