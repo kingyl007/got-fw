@@ -23,8 +23,10 @@ a framework for rapid business develop
 
 #### 软件架构
 框架设计时，考虑可以适配多种开发框架。
-后端基于JFinal框架实现。
-前端默认实现为Easyui。Vue+ElementUI 已经完成了技术性适配，可以正常显示主页，增、删、改、查，剩余部分功能对标开发。
+
+- 后端基于JFinal框架实现。
+
+- 前端默认实现为Easyui。Vue+ElementUI 已经完成了技术性适配，可以正常显示主页，增、删、改、查，剩余部分功能对标开发。
 
 #### 项目启动
 
