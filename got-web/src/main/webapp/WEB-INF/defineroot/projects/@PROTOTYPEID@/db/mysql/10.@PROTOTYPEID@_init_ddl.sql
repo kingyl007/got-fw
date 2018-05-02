@@ -2,11 +2,6 @@
 /* Table: @PROTOTYPEID@_DEMO                                    */
 /*==============================================================*/
 
-create sequence @PROTOTYPEID@_DEMO_SEQ
-minvalue 1
-increment by 1
-nocache;
-/
 
 create table @PROTOTYPEID@_DEMO
 (
