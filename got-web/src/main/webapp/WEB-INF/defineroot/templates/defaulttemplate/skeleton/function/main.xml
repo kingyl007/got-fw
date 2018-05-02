@@ -8,7 +8,7 @@
 			<actions type="mainOpen">
 				<group id="system_manager" title="系统管理" sortIndex="70" />
 
-				<action id="showChangePassword" toUser="false" />
+				<action id="showChangePassword" visible="false" />
 
 				<action id="role" label="角色管理" group="system_manager"
 					sortIndex="300">
