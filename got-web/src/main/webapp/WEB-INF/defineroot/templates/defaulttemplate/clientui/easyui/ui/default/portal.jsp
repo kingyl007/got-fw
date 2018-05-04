@@ -4,6 +4,7 @@
 <%@page import="cn.got.platform.core.model.layout.*"%>
 <%@page import="java.util.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
 
 <!DOCTYPE html>
 <html lang="zh">
@@ -17,20 +18,20 @@
 	}
 %>
 <!-- 新 Bootstrap 核心 CSS 文件 -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/ui/common/bootstrap/3.3.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="${ctx}/ui/lib/bootstrap/3.3.0/css/bootstrap.min.css">
 
 <!-- 可选的Bootstrap主题文件（一般不用引入） -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/ui/common/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="${ctx}/ui/lib/bootstrap/3.3.0/css/bootstrap-theme.min.css">
 
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="${pageContext.request.contextPath}/ui/common/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="${ctx}/ui/lib/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <!-- ECharts单文件引入 -->
-    <script src="${pageContext.request.contextPath}/ui/common/echarts2.2.7/dist/echarts.js"></script>
+    <script src="${ctx}/ui/lib/echarts2.2.7/dist/echarts.js"></script>
     <script type="text/javascript">
         // 路径配置
         require.config({
             paths: {
-                echarts: '${pageContext.request.contextPath}/ui/common/echarts2.2.7/dist'
+                echarts: '${ctx}/ui/lib/echarts2.2.7/dist'
             }
         });
       	var ${pageId}={

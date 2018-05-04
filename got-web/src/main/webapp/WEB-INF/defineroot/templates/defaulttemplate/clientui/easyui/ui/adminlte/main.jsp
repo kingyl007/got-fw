@@ -4,7 +4,6 @@
 <%@page import="cn.got.platform.core.model.layout.*"%>
 <%@page import="java.util.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <%
   // TODO filter in list action, construct button group
 FwView view = (FwView) request.getAttribute("view");
@@ -394,14 +393,14 @@ var ${pageId}={
 						<!-- User Account: style can be found in dropdown.less -->
 						<li class="dropdown user user-menu"><a href="#"
 							class="dropdown-toggle" data-toggle="dropdown"> <img
-								src="${pageContext.request.contextPath}/ui/loanriskcontrol/images/user_avatar3.jpg"
+								src="${pageContext.request.contextPath}/ui/images/avatars/user_avatar3.jpg"
 								class="user-image" alt="User Image"> <span
 								class="hidden-xs">${user.loginId }</span>
 						</a>
 							<ul class="dropdown-menu">
 								<!-- User image -->
 								<li class="user-header"><img
-									src="${pageContext.request.contextPath}/ui/loanriskcontrol/images/user_avatar3.jpg"
+									src="${pageContext.request.contextPath}/ui/images/avatars/user_avatar3.jpg"
 									class="img-circle" alt="User Image">
 									<p>
 										${user.name } <small>${user.customerName }</small>
@@ -637,11 +636,6 @@ var ${pageId}={
 		</div>
 	</div>
 
-	<jsp:include page="footer.jsp" />
 </body>
 <div id="${pageId}_dialogs" style="display: none"></div>
-<audio id="${pageId}_alarm_sound"
-	src="${user!=null && user.args!=null && user.args['lrcAlarmSetting'] != null && user.args['lrcAlarmSetting']['ALARM_SOUND_PATH'] != null ?user.args['lrcAlarmSetting']['ALARM_SOUND_PATH']:'${pageContext.request.contextPath}/ui/sound/alarm.mp3'}"
-	${ user.args['lrcAlarmSetting']['LOOP_ALARM_SOUND'] == '1' ?'loop':''}
-	preload="auto" />
 </html>

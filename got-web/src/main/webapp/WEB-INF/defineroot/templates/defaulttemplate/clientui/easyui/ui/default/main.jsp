@@ -418,7 +418,7 @@ var ${pageId}={
 					<!-- #section:basics/navbar.user_menu -->
 					<li class="light-blue">
 						<a data-toggle="dropdown" href="#" class="dropdown-toggle"> 
-							<img class="nav-user-photo" src="${pageContext.request.contextPath}/ui/common/avatars/user.jpg" alt="Jason's Photo" /> 
+							<img class="nav-user-photo" src="${pageContext.request.contextPath}/ui/images/avatars/user.jpg" alt="Jason's Photo" /> 
 							<span class="user-info"> <small>欢迎,</small>${user.name }</span> 
 							<i class="ace-icon fa fa-caret-down"></i>
 						</a>

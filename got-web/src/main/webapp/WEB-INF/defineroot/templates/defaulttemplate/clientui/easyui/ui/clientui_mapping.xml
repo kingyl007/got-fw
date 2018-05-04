@@ -95,9 +95,9 @@
 	</icons>
 	
 	<i18n>
-		<en_us ui="/ui/easyui/easyui1.4/locale/easyui-lang-en.js" />
-		<ja_jp ui="/ui/easyui/easyui1.4/locale/easyui-lang-jp.js" />
-		<zh_cn ui="/ui/easyui/easyui1.4/locale/easyui-lang-zh_CN.js" />
+		<en_us ui="/ui/lib/easyui1.4/locale/easyui-lang-en.js" />
+		<ja_jp ui="/ui/lib/easyui1.4/locale/easyui-lang-jp.js" />
+		<zh_cn ui="/ui/lib/easyui1.4/locale/easyui-lang-zh_CN.js" />
 	</i18n>
 	
 	<css>

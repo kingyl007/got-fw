@@ -45,12 +45,12 @@
 <jsp:include page="header.jsp" />
 
     <!-- ECharts单文件引入 -->
-    <script src="${pageContext.request.contextPath}/ui/common/echarts2.2.7/dist/echarts.js"></script>
+    <script src="${pageContext.request.contextPath}/ui/lib/echarts2.2.7/dist/echarts.js"></script>
     <script type="text/javascript">
         // 路径配置
         require.config({
             paths: {
-                echarts: '${pageContext.request.contextPath}/ui/common/echarts2.2.7/dist'
+                echarts: '${pageContext.request.contextPath}/ui/lib/echarts2.2.7/dist'
             }
         });
   		var isUpdatingPortalData = false;
@@ -340,5 +340,4 @@
       </div>
       <!-- /.row (main row) -->
 </form>
-<jsp:include page="footer.jsp" />
 </body>
