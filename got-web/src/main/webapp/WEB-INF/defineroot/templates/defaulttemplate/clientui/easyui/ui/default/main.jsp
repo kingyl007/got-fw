@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
+<%@page import="cn.got.platform.core.model.*"%>
 <%@page import="cn.got.platform.core.model.layout.*"%>
 <%@page import="java.util.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -33,7 +34,7 @@ if (view != null) {
 		}
 	}
 	Map<String, FwGroup> otherGroupMap = new HashMap<String, FwGroup>();
-	List<Object> finalActions = new ArrayList<Object>();
+	List<FwObject> finalActions = new ArrayList<FwObject>();
 	List<FwAction> actions = view.getActions();
 	FwGroup group = null;
 	if (actions != null) {
@@ -74,6 +75,7 @@ if (view != null) {
 		}
 		*/
 	}
+	Collections.sort(finalActions);
 	request.setAttribute("displayActions", finalActions);
 	request.setAttribute("otherActions", otherGroupMap);
 }
@@ -423,6 +425,7 @@ var ${pageId}={
 							<i class="ace-icon fa fa-caret-down"></i>
 						</a>
 						<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+							<li><a href="#" data-toggle="modal" data-target="#${pageId }_componentVersionDialog"> <i class="ace-icon fa fa-cog"></i>版本:<%=cn.got.platform.fw.jfinal.core.GotConst.getVersion() %></a></li>
 							<!-- 
 							<li><a href="#"> <i class="ace-icon fa fa-cog"></i> 系统设置 </a></li>
 							 -->
@@ -696,5 +699,37 @@ var ${pageId}={
 		</div>
 	</div>
 
+	<div class="modal fade" role="dialog"
+		id="${pageId }_componentVersionDialog" tabindex="-1"
+		aria-labelledby="myModalLabel" style="display: none;">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">组件版本</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label>Main:&nbsp; </label><%=cn.got.platform.fw.jfinal.core.GotConst.getVersion() %>
+					</div>
+					<div class="form-group">
+						<label>Framework Core:&nbsp; </label><%=cn.got.platform.fw.jfinal.core.GotConst.getVersion("gotplatform-core") %>
+					</div>
+					<div class="form-group">
+						<label>Framework Business:&nbsp; </label><%=cn.got.platform.fw.jfinal.core.GotConst.getVersion("gotplatform-fw") %>
+					</div>
+					<div class="form-group">
+						<label>Framework Biz JFinal:&nbsp; </label><%=cn.got.platform.fw.jfinal.core.GotConst.getVersion("gotplatform-fw-jfinal") %>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

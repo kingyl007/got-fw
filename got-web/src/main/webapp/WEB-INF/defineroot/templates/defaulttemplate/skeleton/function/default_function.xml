@@ -250,10 +250,6 @@
 
 		</rightList>
 
-		<map>
-
-		</map>
-
 		<report onQuery="initList">
 			<actions>
 				<group id="toolsGroup" title="工具" sortIndex="40" />

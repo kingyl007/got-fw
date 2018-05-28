@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
+<%@page import="cn.got.platform.core.model.*"%>
 <%@page import="cn.got.platform.core.model.layout.*"%>
 <%@page import="java.util.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -17,7 +18,7 @@ if (view != null) {
 		}
 	}
 	Map<String, FwGroup> otherGroupMap = new HashMap<String, FwGroup>();
-	List<Object> finalActions = new ArrayList<Object>();
+	List<FwObject> finalActions = new ArrayList<FwObject>();
 	List<FwAction> actions = view.getActions();
 	FwGroup group = null;
 	if (actions != null) {
@@ -58,6 +59,7 @@ if (view != null) {
 		}
 		*/
 	}
+	Collections.sort(finalActions);
 	request.setAttribute("displayActions", finalActions);
 	request.setAttribute("otherActions", otherGroupMap);
 }
@@ -194,20 +196,6 @@ var ${pageId}={
   }
   
   var ALARM_MAP = {
-      'LOWPOWER':{'icon':'glyphicon-flash', 'title':'设备低电报警', 'function':'lowpoweralarm', 'count':0, 'div':null},
-      'OVER7DAYS':{'icon':'glyphicon-calendar', 'title':'超7天未回传报警', 'function':'over7day', 'count':0, 'div':null},
-      'OVER24HOURS':{'icon':'"glyphicon-time"', 'title':'超24小时未回传报警', 'function':'over24hour', 'count':0, 'div':null},
-      'DISMENTAL':{'icon':'glyphicon-wrench', 'title':'设备拆除报警', 'function':'dismantle_alarm_report', 'count':0, 'div':null},
-      'OFFLINE':{'icon':'glyphicon-warning-sign', 'title':'设备离线报警', 'function':'abnormal_offline', 'count':0, 'div':null},
-      'CROSSPROVINCE':{'icon':'glyphicon-share', 'title':'车辆跨省报警', 'function':'crosscity', 'count':0, 'div':null},
-    /*  'CROSSCITY':{'icon':'glyphicon-share', 'title':'车辆跨市报警', 'function':'crosscity', 'count':0, 'div':null},*/
-      'INRISKPOI':{'icon':'glyphicon-screenshot', 'title':'风险点停留报警', 'function':'dangerspot_stop', 'count':0, 'div':null},
-      'OUTAREA':{'icon':'glyphicon-screenshot', 'title':'出区域报警', 'function':'danger_area_inout', 'count':0, 'div':null},
-      'INAREA':{'icon':'glyphicon-screenshot', 'title':'进区域报警', 'function':'danger_area_inout', 'count':0, 'div':null},
-      'DEVICES_DIVIDED':{'icon':'glyphicon-screenshot', 'title':'主从分离报警', 'function':'connect_device_divided', 'count':0, 'div':null},
-      'BOTH_OFFLINE':{'icon':'glyphicon-screenshot', 'title':'主从同时离线报警', 'function':'connect_device_both_offline', 'count':0, 'div':null},
-      'COMBO_ALARM':{'icon':'glyphicon-screenshot', 'title':'风险组合报警', 'function':'combo_alarm', 'count':0, 'div':null},
-      
   };
 //==MQ Start==
   

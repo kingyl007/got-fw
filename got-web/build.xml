@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project name="got-web" default="" basedir=".">
 	<property name="dir.projects" value="src/main/webapp/WEB-INF/defineroot/projects" />
-	<tstamp prefix="my">
-		<format property="now" pattern="yyyyMMddHHmmss" />
-	</tstamp>
-	<tstamp />
-	<propertyfile file="version_info.properties">
+	<property name="version_prop_file" value="src/main/java/version.properties"></property>
+	<propertyfile file="${version_prop_file}">
 		<entry key="build.major.number" type="int" value="1" pattern="0" />
-		<entry key="build.minor.number" type="int" value="0" pattern="0" />
-		<entry key="build.revision.number" type="int" value="0" pattern="0" />
+		<entry key="build.minor.number" type="date" value="now" pattern="yy" />
+		<entry key="build.revision.number" type="date" value="now" pattern="MMdd" />
 		<entry key="build.build.number" type="int" operation="+" value="1" pattern="0000" />
 		<entry key="build.build.time" type="date" value="now" pattern="yyyyMMddHHmmss" />
 	</propertyfile>
 
 	<target name="modifyVersion">
-		<property file="version_info.properties" />
+		<property file="${version_prop_file}" />
 		<property name="build_version" value="${build.major.number}.${build.minor.number}.${build.revision.number}.${build.build.number}" />
 		<echo>current build version:${build_version}</echo>
 		<delete verbose="true">
@@ -25,9 +22,9 @@
 		<propertyfile file="src/main/java/version-${build_version}.properties">
 			<entry key="version" type="string" value="${build_version}" />
 		</propertyfile>
-		<propertyfile file="src/main/java/version.properties">
+		
+		<propertyfile file="${version_prop_file}">
 			<entry key="version" type="string" value="${build_version}" />
-			<entry key="time" type="date" value="now" pattern="yyyyMMddHHmmss" />
 		</propertyfile>
 
 		<!-- Modify some Html file 

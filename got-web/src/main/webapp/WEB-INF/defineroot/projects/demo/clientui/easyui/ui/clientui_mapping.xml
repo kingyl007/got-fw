@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui>
 	<pages>
+	<!-- 
 		<main file="adminlte/main.jsp" />
 		<portal file="adminlte/portal.jsp" />
+	 -->
 		<demoDemoGrid file="demo/demo_grid.jsp" />
 	</pages>
 

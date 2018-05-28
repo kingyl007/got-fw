@@ -17,7 +17,6 @@
 		<printPreviewDialog file="default/print_preview_dialog.jsp" />
 		<columnManage file="default/column_manage_dialog.jsp" />
 		<portal file="default/portal.jsp" />
-		<map file="default/mapdemo.jsp" />
 		<report file="default/report.jsp" />
 		<right file="right/right_tree.jsp" />
 		<rightList file="right/right_list.jsp" />

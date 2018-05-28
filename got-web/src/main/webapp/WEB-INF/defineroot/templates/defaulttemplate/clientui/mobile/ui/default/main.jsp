@@ -4,17 +4,6 @@
 <%@page import="cn.got.platform.core.model.layout.*"%>
 <%@page import="java.util.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-<%
-  String basePath = request.getScheme() + "://"
-					+ request.getServerName() + ":" + request.getServerPort()
-					+ "/";
-			String democlientPath = basePath + "client/";
-			String demoerpPath = basePath + "erp/";
-			String demomanagerPath = basePath + "manager/";
-			String demooaPath = basePath + "oa/";
-%>
-
 <!DOCTYPE html>
 <html lang="zh">
 <head>

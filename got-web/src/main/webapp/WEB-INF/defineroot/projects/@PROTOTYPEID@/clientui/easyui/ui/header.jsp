@@ -6,35 +6,40 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <base target="_self" />
-<link rel="stylesheet" type="text/css" href="${ctx}/ui/easyui/easyui1.4/themes/${project.props['project.skin'] }/easyui.css" />
-<link rel="stylesheet" type="text/css" href="${ctx}/ui/easyui/easyui1.4/themes/color.css" />
-<link rel="stylesheet" type="text/css" href="${ctx}/ui/easyui/easyui1.4/themes/icon.css" />
-<link rel="stylesheet" type="text/css" href="${ctx}/ui/easyui/admin.css" />
-<!--  -->
-<link rel="stylesheet" href="${ctx}/ui/common/css/font-awesome.min.css" />
+<script type="text/javascript" src="${ctx}/ui/lib/jquery-1.10.2/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="${ctx}/ui/lib/jquery-1.10.2/jquery-migrate-1.2.1.min.js"></script>
 
-<script type="text/javascript" src="${ctx}/ui/common/jquery/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="${ctx}/ui/common/jquery/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="${ctx}/ui/easyui/easyui1.4/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="${ctx}/ui/easyui/easyui1.4/extension/datagrid-dnd.js"></script>
-<script type="text/javascript" src="${ctx}/ui/easyui/easyui1.4/extension/jquery.edatagrid.js"></script>
+<script type="text/javascript" src="${ctx}/ui/lib/easyui1.4/jquery.easyui.min.js"></script>
+<link rel="stylesheet" type="text/css" href="${ctx}/ui/lib/easyui1.4/themes/${project.props['project.skin'] }/easyui.css" />
+<link rel="stylesheet" type="text/css" href="${ctx}/ui/lib/easyui1.4/themes/color.css" />
+<link rel="stylesheet" type="text/css" href="${ctx}/ui/lib/easyui1.4/themes/icon.css" />
+<script type="text/javascript" src="${ctx}/ui/lib/easyui1.4/extension/datagrid-dnd.js"></script>
+<script type="text/javascript" src="${ctx}/ui/lib/easyui1.4/extension/jquery.edatagrid.js"></script>
+
+<link rel="stylesheet" type="text/css" href="${ctx}/ui/easyui/admin.css" />
 <script type="text/javascript" src="${ctx}/ui/easyui/admin.js"></script>
 
+<!--  -->
+<link rel="stylesheet" href="${ctx}/ui/lib/font-awesome/font-awesome.min.css" />
+
+
 <link rel="stylesheet" type="text/css" href="${ctx}/ui/easyui/cxfw2/icon.css" />
+<script type="text/javascript" src="${ctx}/ui/easyui/cxfw2/dgtooltip.js"></script>
+<!-- 
 <script type="text/javascript" src="${ctx}/ui/easyui/cxfw2/cxfw2.js"></script>
+ -->
 
 <link rel="stylesheet" type="text/css" href="${ctx}/ui/easyui/got/icon.css" />
 <script type="text/javascript" src="${ctx}/ui/easyui/got/got.js"></script>
-<script type="text/javascript" src="${ctx}/ui/easyui/cxfw2/dgtooltip.js"></script>
 
-<script class="include" type="text/javascript" src="${ctx}/ui/common/ajax-file-uploader/ajaxfileupload.js"></script>
+<script class="include" type="text/javascript" src="${ctx}/ui/lib/ajax-file-uploader/ajaxfileupload.js"></script>
 
 <!--  activemq json -->
-  <script type="text/javascript" src="${ctx}/ui/common/amq/json_amq_jquery_adapter.js"></script>
-  <script type="text/javascript" src="${ctx}/ui/common/amq/json_amq.js"></script>
+  <script type="text/javascript" src="${ctx}/ui/lib/amq/json_amq_jquery_adapter.js"></script>
+  <script type="text/javascript" src="${ctx}/ui/lib/amq/json_amq.js"></script>
 
 <!-- json -->
-  <script type="text/javascript" src="${ctx}/ui/common/json/json2.js"></script>
+  <script type="text/javascript" src="${ctx}/ui/lib/json/json2.js"></script>
   
   <link rel="stylesheet" href="${ctx}/ui/lib/colorpicker/css/colorpicker.css" type="text/css" />
   <link rel="stylesheet" href="${ctx}/ui/lib/colorpicker/css/layout.css"  media="screen" type="text/css" />
@@ -52,7 +57,3 @@
 <c:forEach var="js" items="${view.uiMap[lang].dataMap }">
 <script type="text/javascript" src="${ctx}${js.value }"></script>
 </c:forEach>
-
-<!-- LOCAL -->
-<link rel="stylesheet" type="text/css" href="${ctx}/ui/afgms/design/css/main.css" />
-

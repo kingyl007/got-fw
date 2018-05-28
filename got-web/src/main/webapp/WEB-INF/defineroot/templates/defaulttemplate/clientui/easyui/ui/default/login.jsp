@@ -131,6 +131,11 @@
 </c:forEach>
 							</td>
 							</tr>
+							<tr><td>&nbsp;</td></tr>
+							<tr>
+								<td></td>
+								<td colspan="2" align="center"><a href="#" title="" style="text-decoration: none;">版本:<%=cn.got.platform.fw.jfinal.core.GotConst.getVersion() %></a></td>
+							</tr>
 						</table>
 					</div>
 					<table>
