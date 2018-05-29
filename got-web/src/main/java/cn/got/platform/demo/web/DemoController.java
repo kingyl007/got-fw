@@ -13,15 +13,10 @@ import cn.got.platform.fw.jfinal.web.handler.flex.GotMessageService;
 import cn.got.util.raw.Util;
 
 /**
- * Title: gotplatform-demo<br>
- * Description: <br>
- * Copyright: Copyright (c) 2017 <br>
- * Create DateTime: Mar 28, 2017 11:23:35 AM <br>
- * 
  * @author kingyl007(kingyl007@163.com)
+ * @since 1.0 Mar 28, 2017 11:23:35 AM <br>
  */
 public class DemoController extends GotBaseController {
-
 
   @Clear
   public void listProp() {

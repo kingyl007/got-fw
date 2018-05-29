@@ -8,12 +8,8 @@ import com.jfinal.kit.PathKit;
 import com.jfinal.kit.PropKit;
 
 /**
- * Title: gotplatform-demo<br>
- * Description: <br>
- * Copyright: Copyright (c) 2016 <br>
- * Create DateTime: Jul 26, 2016 1:19:48 PM <br>
- * 
  * @author kingyl007(kingyl007@163.com)
+ * @since 1.0 Jul 26, 2016 1:19:48 PM <br>
  */
 public class DemoConfig extends GotConfig {
 
@@ -29,7 +25,8 @@ public class DemoConfig extends GotConfig {
   public static void main(String[] args) {
     if (args != null && args.length > 3) {
       PathKit.setWebRootPath(args[0]);
-      JFinal.start(args[0], Integer.valueOf(args[1]), args[2], Integer.valueOf(args[3]));
+      JFinal.start(args[0], Integer.valueOf(args[1]), args[2],
+          Integer.valueOf(args[3]));
     }
     else {
       JFinal.start("src/main/webapp", 8080, "/", 5);

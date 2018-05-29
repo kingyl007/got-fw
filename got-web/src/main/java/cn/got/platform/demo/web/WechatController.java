@@ -32,12 +32,8 @@ import com.jfinal.aop.Clear;
 import com.jfinal.kit.PropKit;
 
 /**
- * Title: gotplatform-demo<br>
- * Description: <br>
- * Copyright: <a href="http://www.got-fw.com">got-fw.com</a> Copyright (c) 2017 <br>
- * Create DateTime: 2017年10月10日 下午3:57:10 <br>
- * 
  * @author kingyl007(kingyl007@163.com)
+ * @since 1.0 2017年10月10日 下午3:57:10 <br>
  */
 @Clear
 public class WechatController extends GotBaseController {
@@ -101,8 +97,8 @@ public class WechatController extends GotBaseController {
   public void toLoginView() {
     String code = getPara("code");
     String state = getPara("state");
-    Map<String, String> queryMap = splitQueryString(getRequest()
-        .getQueryString());
+    Map<String, String> queryMap = splitQueryString(
+        getRequest().getQueryString());
     if (Util.isEmpty(code)) {
       code = queryMap.get("code");
     }
@@ -124,8 +120,8 @@ public class WechatController extends GotBaseController {
   public void directLogin() {
     String code = getPara("code");
     String state = getPara("state");
-    Map<String, String> queryMap = splitQueryString(getRequest()
-        .getQueryString());
+    Map<String, String> queryMap = splitQueryString(
+        getRequest().getQueryString());
     if (Util.isEmpty(code)) {
       code = queryMap.get("code");
     }
@@ -161,7 +157,8 @@ public class WechatController extends GotBaseController {
   }
 
   public void access_token() {
-    renderJson("{\"access_token\":\"V253lMTyEkW7FuI0oQPoS-W_hJYUxqR8P1bmBd-nklo2MJrKzjLK39pdob6L4oad3InLjK8vC2sCIFYIRCiTJfMoHShgoCLgpGqzqL5_RH4\",\"expires_in\":7200,\"refresh_token\":\"TSfoE8dk5ksEYQt4LwjSXQe0A-Mb-lhjxpEcw_gF7vpTlBOOUCJLKorLmPBvjF4-0fR2hOvOY3yJw65MakTXrLd5_RtoaiGUNLiOKvUzG2s\",\"openid\":\"oTOnpw9bdOLRAKQDDioI2ZNmDqKg\",\"scope\":\"snsapi_base\"}");
+    renderJson(
+        "{\"access_token\":\"V253lMTyEkW7FuI0oQPoS-W_hJYUxqR8P1bmBd-nklo2MJrKzjLK39pdob6L4oad3InLjK8vC2sCIFYIRCiTJfMoHShgoCLgpGqzqL5_RH4\",\"expires_in\":7200,\"refresh_token\":\"TSfoE8dk5ksEYQt4LwjSXQe0A-Mb-lhjxpEcw_gF7vpTlBOOUCJLKorLmPBvjF4-0fR2hOvOY3yJw65MakTXrLd5_RtoaiGUNLiOKvUzG2s\",\"openid\":\"oTOnpw9bdOLRAKQDDioI2ZNmDqKg\",\"scope\":\"snsapi_base\"}");
   }
 
   public void currentAccessToken() {
