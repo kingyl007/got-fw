@@ -130,6 +130,15 @@ if (!"1".equals(request.getAttribute("showAsDialog"))) {
 					    		if (i > 0 && i % 4 == 0) {
 					    			columnHtml = columnHtml + "</tr><tr>";
 					    		}
+					    		if (columnList[i]["HAVE_PRIVILEGE"]) {
+					    			if (columnList[i]["HAVE_PRIVILEGE"] == 1) {
+					    				checkedStr = "checked";
+					    			} else {
+					    				checkedStr = "";
+					    			}
+					    		} else {
+					    			checkedStr = functionCheckStatus;
+					    		}
 					    		tid = "${pageId }_" + groupId +"_" + functionId + "_columns_"+columnList[i]["PKEY"];
 					    		idarr.push(tid);
 					    		columnHtml = columnHtml + "<td nowrap><input id='" + tid

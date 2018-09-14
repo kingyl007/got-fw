@@ -114,6 +114,9 @@ function(view, data, actionIndex, rowIndex, event) {
 			for ( var i = 0; i < menuButtons.length; ++i) {
 				$("#" + menuButtons[i]).menubutton();
 			}
+			if (returnData.footerData) {
+				view.getGrid().datagrid('reloadFooter', returnData.footerData);
+			}
 			var pg = returnData.page;
 			$(view.getId("totalRow")).val(pg.totalRow);
 			$(view.getId("pageSize")).val(pg.pageSize);

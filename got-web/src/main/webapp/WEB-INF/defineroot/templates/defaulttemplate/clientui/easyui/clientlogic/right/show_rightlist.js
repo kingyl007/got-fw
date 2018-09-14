@@ -86,7 +86,7 @@ function(view, data, actionIndex, rowIndex, event) {
 										}
 									}
 								} else {
-									newData[this.name]['HAVE_RIGHT'] = (this.checked ? '1' : '0');
+									newData[this.name]['HAVE_PRIVILEGE'] = (this.checked ? '1' : '0');
 								}
 							}
 						});
@@ -112,9 +112,9 @@ function(view, data, actionIndex, rowIndex, event) {
 								if (errorMsg) {
 									$.messager.alert('提示', "更新错误:" + errorMsg, 'error');
 								} else {
-									// $(view.getId(dialogName)).dialog("close");
+									$(view.getId(dialogName)).dialog("close");
 									$.remind('提示', '保存成功', "info", 1600);
-									// view.queryGridData();
+									view.queryGridData();
 								}
 								// return errorMsg;
 							}

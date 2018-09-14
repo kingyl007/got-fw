@@ -64,6 +64,7 @@
 	<!--  Formatters.... -->
 	<datetimeFormatter class="default/formatter/datetime_formatter.js" />
 	<dateFormatter class="default/formatter/date_formatter.js" />
+	<percentFormatter class="default/formatter/percent_formatter.js" />
 	
 	<!-- Validator  -->
 	<demoValidator class="default/validator/demo_validator.js" />

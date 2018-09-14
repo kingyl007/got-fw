@@ -27,7 +27,7 @@
 				<action id="searchList" label="搜索" group="searchGrp"
 					sortIndex="10" url="getGridData" />
 				<action id="searchListAdvanced" label="高级搜索" group="searchGrp"
-					sortIndex="20" visible="true" />
+					sortIndex="20" visible="false" />
 				<action id="showCreateInList" visible="false" />
 				<action id="showEditInList" visible="false" />
 				<action id="deleteList" visible="false" />

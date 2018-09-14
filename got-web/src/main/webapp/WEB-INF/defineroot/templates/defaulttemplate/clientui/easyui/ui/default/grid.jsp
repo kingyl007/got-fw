@@ -136,28 +136,32 @@
 				title : "${view.title }",
 				sortName : $(${pageId}.getId("sortName")).val(),
 				sortOrder : $(${pageId}.getId("sortOrder")).val(),
+				showFooter : ${not empty view.argument.map['showFooter'] && view.argument.map['showFooter']},
 				onClickCell : ${pageId}.onClickCell,
 				onDblClickCell : ${pageId}.onDblClickCell,
 				columns : [[ 
 	            { field: 'ck', checkbox: true }
 <c:if test="${view.columns != null }">
-<c:forEach var="instance" items="${view.columns}" varStatus="status">
-<c:if test="${instance.toView || instance.pk}" >
-	,{ field: '${instance.id}', title: '${instance.label}'
-	, width: ${(not empty instance.width && instance.width > 0)?instance.width:'150'}
-	, sortable: true,resizable : true, toUser: ${instance.toUser}
-	, hidden:${!instance.visible}
+<c:forEach var="col" items="${view.columns}" varStatus="status">
+<c:if test="${col.toView || col.pk}" >
+	,{ field: '${col.id}', title: '${col.label}'
+	, width: ${(not empty col.width && col.width > 0)?col.width:'150'}
+	, sortable: true,resizable : true, toUser: ${col.toUser},ui:'${col.ui}'
+	, hidden:${!col.visible}, halign:'left', align: '${(col.type == "NUM"&& (empty col.showColumn))?"right":"left"}'
 		<c:choose>
-			<c:when test="${not empty instance.onFormat}">
-				, formatter: ${pageId}.${instance.onFormat}
+			<c:when test="${not empty col.onFormat}">
+				, formatter: ${pageId}.${col.onFormat}
 			</c:when>
-			<c:when test="${not empty instance.dictionary}">
-				, formatter: function(val,data,index){var str = ${pageId}.dictMap['${instance.dictionary}'][val]; if (str == null || str == '') {str = val;} return got.xssFilter(str);}
+			<c:when test="${not empty col.dictionary}">
+				, formatter: function(val,data,index){var str = ${pageId}.dictMap['${col.dictionary}'][val]; if (str == null || str == '') {str = val;} return got.xssFilter(str);}
 			</c:when>
-			<c:when test="${not empty instance.showColumn}">
-				, formatter: function(val,data,index){var str = ''; $.each('${instance.showColumn}'.split(','), function(i, s) {str += ((data[s]?data[s]:'') +' ');});return got.xssFilter(str);}
+			<c:when test="${not empty col.showColumn}">
+				, formatter: function(val,data,index){var str = ''; $.each('${col.showColumn}'.split(','), function(i, s) {str += ((data[s]?data[s]:'') +' ');});return got.xssFilter(str);}
 			</c:when>
-			<c:when test="${instance.id == '_FW_ACTIONS'}">
+			<c:when test="${col.type == 'NUM' && not empty col.decimalSize}">
+				, formatter: function(val,data,index){return got.xssFilter(got.getNumberStr(val, ${col.decimalSize}));}
+			</c:when>
+			<c:when test="${col.id == '_FW_ACTIONS'}">
 				, sortable:false
 			</c:when>
 			<c:otherwise>
@@ -222,8 +226,8 @@
 		<input type="hidden" id="${pageId}_pageSize" name="fwPage.pageSize" value="10" /> 
 		<input type="hidden" id="${pageId}_pageNumber" name="fwPage.pageNumber" value="1" />
 	
-		<input type="hidden" id="${pageId}_sortName" name="fwParam.sortName" value="${fwParam.sortName }" />
-		<input type="hidden" id="${pageId}_sortOrder" name="fwParam.sortOrder" value="${fwParam.sortOrder }" />
+		<input type="hidden" id="${pageId}_sortName" name="fwParam.sortName" value="" />
+		<input type="hidden" id="${pageId}_sortOrder" name="fwParam.sortOrder" value="" />
 		<input type="hidden" id="${pageId}_treeConnectColumn" name="fwParam.treeConnectColumn" value="${not empty view.argument?view.argument.map['treeConnectColumn']:'' }" /> 
 
 		<input type="hidden" id="${pageId}_openerFunction" name="fwParam.openerFunction" value="${fwParam.openerFunction }" />

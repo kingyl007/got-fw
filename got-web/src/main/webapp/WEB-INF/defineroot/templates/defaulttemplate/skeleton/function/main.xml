@@ -6,7 +6,7 @@
 	<views>
 		<main title="主页">
 			<actions type="mainOpen">
-				<group id="system_manager" title="系统管理" sortIndex="70" />
+				<group id="system_manager" title="系统管理" sortIndex="999" />
 
 				<action id="showChangePassword" visible="false" />
 

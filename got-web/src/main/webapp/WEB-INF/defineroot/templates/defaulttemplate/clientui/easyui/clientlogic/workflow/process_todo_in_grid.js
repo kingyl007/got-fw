@@ -292,7 +292,9 @@ function(view, data, actionIndex, rowIndex, event) {
 				for ( var k in returnData) {
 					var fe = $(view.dialogs[dialogName].getId(k));
 					got.setFormValue(fe, returnData, k);
-					view.dialogs[dialogName].setDivValue($(view.dialogs[dialogName].getId(k+'_DIV')), returnData, k);
+					if (view.dialogs[dialogName].setDivValue) {
+						view.dialogs[dialogName].setDivValue($(view.dialogs[dialogName].getId(k+'_DIV')), returnData, k);
+					}
 				}
 				if (view.dialogs[dialogName].setOtherData) {
 					view.dialogs[dialogName].setOtherData(returnData);

@@ -103,7 +103,11 @@ var got = {
 		if (str == null) {
 			return new Date();
 		}
-		return new Date(str.split('-').join('/'));
+		var d = new Date(str.split('-').join('/'));
+		if (d == 'Invalid Date') {
+			return str;
+		}
+		return d;
 	},
 	/*
 	parseDate : function(str, patt) {
@@ -132,6 +136,19 @@ var got = {
 			dateValue = obj;
 		}
 		return dateValue;
+	},
+	
+	getNumberStr : function(val, decimalSize) {
+		console.info('getNumberStr');
+		 var f = parseFloat(val); 
+     if (!isNaN(f) && (decimalSize === 0 || decimalSize > 0)) {
+    	 var power = Math.pow(10, decimalSize);
+    	 return Math.round(f * power) / (power * 1.0);
+    	 /*
+    	 return f.toFixed(decimalSize);
+    	  */
+     }
+     return val; 
 	},
 
 	getTimeIntervalStr : function(from, to) {

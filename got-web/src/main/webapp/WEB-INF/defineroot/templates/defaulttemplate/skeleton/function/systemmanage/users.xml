@@ -2,22 +2,19 @@
 <function xmlns="http://www.got-fw.com/schema/function"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.got-fw.com/schema/function http://www.got-fw.com/schema/function/function-1.0.xsd"
-	ref="default_function" title="用户" bizService="userBizService">
+	ref="default_function" title="用户">
 	<table name="GOT_USER">
 	</table>
 	<columns>
 		<column id="ID" sortIndex="10" label="ID" editable="false" />
-		<column id="NAME" sortIndex="20" label="用户名" required="true" />
 		<column id="USER_ACCOUNT" sortIndex="20" label="账号名" required="true"
 			unique="G" />
 		<column id="PASSWORD" sortIndex="30" label="密码" required="true"
 			toView="false" ui="password" />
+		<column id="NAME" sortIndex="35" label="用户名称" required="true" />
 		<column id="CUSTOMER_ID" toUser="false" />
 		<column id="ISDEL" toUser="false" />
 		<column id="IS_ENABLE" toUser="false" />
-		<column id="DEPT_NAME" toUser="false" />
-		<column id="VALIDTO" toUser="false" />
-		<column id="ROLE_ID" toUser="false" />
 	</columns>
 	<views>
 		<grid>

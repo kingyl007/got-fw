@@ -357,7 +357,7 @@ if (str != null) {
 											            		<c:if test="${gc.id == col.valueRef.value || gc.id == col.valueRef.label}">
 											            			{ field: '${gc.id}', title: '${gc.label}', width: 150, sortable:true,resizable:true, hidden:${not empty gc.visible && !gc.visible}
 																		<c:if test="${not empty gc.showColumn}">
-																		, formatter: function(val,data,index){return data['${gc.showColumn}'];}
+																		, formatter: function(val,data,index){var str = ''; $.each('${gc.showColumn}'.split(','), function(i, s) {str += ((data[s]?data[s]:'') +' ');});return got.xssFilter(str);}
 																		</c:if>
 																	},
 											            		</c:if>
@@ -366,7 +366,7 @@ if (str != null) {
 												            		<c:if test="${gc.id == orc }">
 												            		{ field: '${gc.id}', title: '${gc.label}', width: 150, sortable:true,resizable:true, hidden:${not empty gc.visible && !gc.visible}
 																		<c:if test="${not empty gc.showColumn}">
-																		, formatter: function(val,data,index){return data['${gc.showColumn}'];}
+																		, formatter: function(val,data,index){var str = ''; $.each('${gc.showColumn}'.split(','), function(i, s) {str += ((data[s]?data[s]:'') +' ');});return got.xssFilter(str);}
 																		</c:if>
 																	},
 												            		</c:if>
@@ -445,8 +445,8 @@ if (str != null) {
 													name="${col.id }" style="width: ${showAsDialog == '1'?'100':'30'}%;"
 													class="easyui-textbox"
 													data-options="validateOnCreate:false,validateOnBlur:true,novalidate:true,required:${col.required },
-													validType:['num[\'${col.pattern }\',${col.decimalSize },\'\']','fwRemote[${pageId },\'${col.id }\',\'\']'],
-													readonly:${!col.editable },min:0,precision:${col.decimalSize},decimalSeparator:'.'"
+													validType:['num[\'${col.pattern }\',${not empty col.decimalSize?col.decimalSize:5 },\'\']','fwRemote[${pageId },\'${col.id }\',\'\']'],
+													readonly:${!col.editable },min:0,precision:${not empty col.decimalSize?col.decimalSize:5 },decimalSeparator:'.'"
 													ui="easyui-textbox" pattern="${col.pattern }"/>
 											</c:when>
 											<c:when test="${col.ui == 'easyui-filebox' }">

@@ -12,12 +12,16 @@ function(view, data, actionId, rowIndex, event) {
 		async : true,
 		error : function(res, ts, e) {
 			hideLoading();
-			alert("检索错误:" + ts);
+			$.messager.alert('提示', "检索错误:" + ts,'error');
 		},
 		success : function(returnData) {
 			hideLoading();
-			if (returnData == null) {
-				alert('检索错误');
+			if (returnData == null || !returnData.success) {
+				if (returnData != null && returnData.errorMsg) {
+					$.messager.alert('提示', returnData.errorMsg, 'info');
+				} else {
+					$.messager.alert('提示', '检索错误', 'info');
+				}
 				return;
 			}
 			view.data = returnData;
@@ -115,6 +119,9 @@ function(view, data, actionId, rowIndex, event) {
 				if (list[i]["FW_SELECTED"]) {
 					view.getGrid().datagrid("selectRow", i);
 				}
+			}
+			if (returnData.footerData) {
+				view.getGrid().datagrid('reloadFooter', returnData.footerData);
 			}
 			var pg = returnData.page;
 			$(view.getId("totalRow")).val(pg.totalRow);
