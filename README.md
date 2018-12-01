@@ -3,6 +3,10 @@ a framework for rapid business develop
 
 #### 项目介绍
 基于XML描述文件的快速开发平台，以最大程度的复用性为目标。
+示例项目地址:
+http://www.got-fw.com
+用户名:demo
+密码:demo
 
 主要特点：
 1. 基于XML的界面元素描述方式,与传统用数据库表保存界面设置信息不同，可以方便的进行版本控制、合并，部署。
