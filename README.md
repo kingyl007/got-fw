@@ -6,7 +6,7 @@ a framework for rapid business develop
 
 示例项目地址:
 ```
-http://www.got-fw.com
+[http://www.got-fw.com]
 用户名:demo
 密码:demo
 ```
