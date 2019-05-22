@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<title>${view.title }</title>
+<title>${not empty view.title?view.title:function.title}</title>
 <%
 FwView view = (FwView) request.getAttribute("view");
 if (view != null) {

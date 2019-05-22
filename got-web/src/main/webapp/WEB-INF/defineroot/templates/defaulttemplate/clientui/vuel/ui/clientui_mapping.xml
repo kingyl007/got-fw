@@ -3,8 +3,16 @@
 	<views>
 		<main file="default/main.jsp" />
 		<grid file="default/grid.jsp" />
-		<edit file="default/edit.jsp" />
-		<create file="default/create.jsp" />
+		<edit file="default/edit.jsp"/>
+		<create file="default/create.jsp"/>
+		
+		<export file="default/export_dialog.jsp" width="35%"/>
+		
+		<import file="default/import_dialog.jsp" width="30%"/>
+
+		<select file="default/select.jsp" />
+		
+		<columnManage file="default/column_manage_dialog.jsp" width="40%"/>
 	</views>
 	<actions>
 	<!-- 不能与pages里节点同名，否则会覆盖 -->
@@ -72,7 +80,8 @@
 		
 		<emptyFolder icon="icon-folder" />
 		<folder icon="icon-folder-add" />
-		
+		<showRole icon="el-icon-setting" />
+		<showRight icon="el-icon-setting" />
 	</icons>
 	
 	<i18n>

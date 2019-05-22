@@ -44,6 +44,34 @@ if (!"1".equals(request.getAttribute("showAsDialog"))) {
 			}
 			</c:if>
 		},
+		getOldSelectedData: function() {
+			return ${pageId}.data;
+		},
+		getNewSelectedData: function() {
+			var newData = {};
+			$('input:checkbox').each(function(c) {
+				if (this.id && this.id.indexOf(${pageId}.id) == 0) {
+					if (this.name.indexOf("actions.") == 0 || this.name.indexOf("columns.") == 0 || this.name.indexOf("datalevel.") == 0) {
+						return true;
+					}
+					if (newData[this.name] == null) {
+						newData[this.name] = {};
+					}
+					if (this.id.indexOf('_datalevel_') >= 0) {
+						if (this.checked) {
+							if (newData[this.name]['DATA_LEVEL']) {
+								newData[this.name]['DATA_LEVEL'] = newData[this.name]['DATA_LEVEL'] + "," + this.value;
+							} else {
+								newData[this.name]['DATA_LEVEL'] = this.value;
+							}
+						}
+					} else {
+						newData[this.name]['HAVE_PRIVILEGE'] = (this.checked ? '1' : '0');
+					}
+				}
+			});
+			return newData;
+		},
 		expandedPanels : {},
 		realCheckBox : {},
 			
@@ -285,12 +313,14 @@ if (!"1".equals(request.getAttribute("showAsDialog"))) {
 	</c:if>
 </c:forEach>
 </c:if>
-</td>
-</tr>
-</table>
+				</td>
+			</tr>
+		</table>
+	</div>
 </form>
 <form id="${pageId}_dataForm" name="dataForm" action="list" method="post">
 <input type="hidden" id="${pageId}_roleId" name="ROLE_ID" value="${ROLE_ID }" />
+</form>
 <table width="95%">
 	<tr>
 		<td align="left">
@@ -374,7 +404,6 @@ if (!"1".equals(request.getAttribute("showAsDialog"))) {
 	</tr>
 </table>
 		</div>
-	</form>
 </body>
 <div id="${pageId}_dialogs" style="display : none"></div>
 </html>

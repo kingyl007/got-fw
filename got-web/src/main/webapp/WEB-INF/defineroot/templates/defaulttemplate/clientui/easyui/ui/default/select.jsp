@@ -78,21 +78,44 @@
 <script type="text/javascript">
 	var ${pageId}={
 <jsp:include page="../default_view_object.jsp" />
-			queryGridData: function() {
-	  		<c:if test="${not empty view.onQuery}">
-				if (this['${view.onQuery}']) {
-					this['${view.onQuery}'](this, $(this.getId("form")).serialize());
-				}
+		queryGridData: function() {
+		<c:if test="${not empty view.onQuery}">
+			if (this['${view.onQuery}']) {
+				this['${view.onQuery}'](this, $(this.getId("form")).serialize());
+			}
+			</c:if>
+		},
+		
+		getGrid: function() {
+			return $(${pageId}.getId("datagrid"));
+		},
+		
+		getPagination: function() {
+			return $(${pageId}.getId("pagination"));
+		},
+		
+		onClickCell : function(rowIndex, field, value) {
+			var view = ${pageId};
+			// console.info("click:" + rowIndex +"," + field +" ," + value);
+			<c:forEach var="col" items="${view.columns}" varStatus="cs">
+				<c:if test="${not empty col.onClick}">
+					if (field == '${col.id}') {
+						view['${col.onClick}'](view, value, '${col.id}', rowIndex);
+					}
 				</c:if>
-			},
-			
-			getGrid: function() {
-			  return $(${pageId}.getId("datagrid"));
-			},
-			
-			getPagination: function() {
-			  return $(${pageId}.getId("pagination"));
-			},
+			</c:forEach>
+		},
+		onDblClickCell : function(rowIndex, field, value) {
+			var view = ${pageId};
+			// console.info("dbclick:" + rowIndex +"," + field +" ," + value);
+			<c:forEach var="col" items="${view.columns}" varStatus="cs">
+				<c:if test="${not empty col.onDblClick}">
+					if (field == '${col.id}') {
+						view['${col.onDblClick}'](view, value, '${col.id}', rowIndex);
+					}
+				</c:if>
+			</c:forEach>
+		},
 	}
 	
 	$(function() {
@@ -114,6 +137,8 @@
 				sortName : $(${pageId}.getId("sortName")).val(),
 				sortOrder : $(${pageId}.getId("sortOrder")).val(),
 				showFooter : ${not empty view.argument.map['showFooter'] && view.argument.map['showFooter']},
+				onClickCell : ${pageId}.onClickCell,
+				onDblClickCell : ${pageId}.onDblClickCell,
 				columns : [[ 
 	            { field: 'ck', checkbox: true }
 <c:if test="${view.columns != null }">
@@ -121,7 +146,7 @@
 <c:if test="${col.toView || col.pk}" >
 	,{ field: '${col.id}', title: '${col.label}'
 	, width: ${(not empty col.width && col.width > 0)?col.width:'150'}
-	, sortable: true,resizable : true, toUser: ${col.toUser}
+	, sortable: true,resizable : true, toUser: ${col.toUser},ui:'${col.ui}'
 	, hidden:${!col.visible}, halign:'left', align: '${(col.type == "NUM"&& (empty col.showColumn))?"right":"left"}'
 		<c:choose>
 			<c:when test="${not empty col.onFormat}">
@@ -175,7 +200,9 @@
 		</c:if>
 		<c:if test="${(not empty openerId) && (not empty fwParam.openerActionId)}">
 			${openerId}.dialogs['${fwParam.openerActionId}'] = ${pageId};
-		</c:if>		
+		</c:if>
+		$(${pageId}.getId("datagrid")).datagrid("columnMoving");
+
 		<c:if test="${not empty view.onInit}">
 		if (${pageId}['${view.onInit}']) {
 		  ${pageId}['${view.onInit}'](${pageId}, $(${pageId}.getId("form")).serialize());
@@ -194,11 +221,11 @@
 		<input type="hidden" id="${pageId}_view" name="fwCoord.view" value="${view.coord.view }" />
 		<input type="hidden" id="${pageId}_lang" name="fwCoord.lang" value="${view.coord.lang }" />
 		<input type="hidden" id="${pageId}_ui" name="fwCoord.ui" value="${view.coord.ui }" />
-		
+
 		<input type="hidden" id="${pageId}_totalRow" name="fwPage.totalRow" value="100" /> 
 		<input type="hidden" id="${pageId}_pageSize" name="fwPage.pageSize" value="10" /> 
 		<input type="hidden" id="${pageId}_pageNumber" name="fwPage.pageNumber" value="1" />
-	
+
 		<input type="hidden" id="${pageId}_sortName" name="fwParam.sortName" value="" />
 		<input type="hidden" id="${pageId}_sortOrder" name="fwParam.sortOrder" value="" />
 		<input type="hidden" id="${pageId}_treeConnectColumn" name="fwParam.treeConnectColumn" value="${not empty view.argument?view.argument.map['treeConnectColumn']:'' }" /> 
@@ -206,6 +233,8 @@
 		<input type="hidden" id="${pageId}_openerFunction" name="fwParam.openerFunction" value="${fwParam.openerFunction }" />
 		<input type="hidden" id="${pageId}_openerView" name="fwParam.openerView" value="${fwParam.openerView }" />
 		<input type="hidden" id="${pageId}_openerActionId" name="fwParam.openerActionId" value="${fwParam.openerActionId }" />
+
+		<input type="hidden" id="${pageId}_selectedId" name="fwParam.selectedId" value="${fwParam.selectedId }" />
 		<div>
 			<table style="margin: 10px">
 				<tr>

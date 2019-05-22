@@ -96,7 +96,7 @@ onFileSelected : function(event, id) {
 		data : postData,
 		error : function(res, ts, e) {
 			$.messager.progress('close'); 
-			$.messager.alert('提示', "上传错误 :" + ts, 'error');
+			$.messager.alert('提示', "上传错误(1):" + e, 'error');
 		},
 		success : function(result, status) {
 			$.messager.progress('close');
@@ -114,9 +114,9 @@ onFileSelected : function(event, id) {
 				if (result.validResultMap) {
 					view.dialogs[dialogName].validErrorMap = result.validResultMap;
 					got.doValidate(view.dialogs[dialogName], true);
-					$.remind('错误', '上传错误:' + result.errorMsg, "error", 3000);
+					$.remind('错误', '上传错误(2):' + result.errorMsg, "error", 3000);
 				} else {
-					$.messager.alert('提示', "上传错误:" + result.errorMsg, 'error');
+					$.messager.alert('提示', "上传错误(3): " + result.errorMsg, 'error');
 				}
 			}
 			$(fileInputId).val('');

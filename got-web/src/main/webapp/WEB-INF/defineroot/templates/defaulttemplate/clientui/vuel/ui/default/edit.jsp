@@ -40,6 +40,7 @@ if (str != null) {
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta charset="UTF-8">
 	<title>${not empty view.title?view.title:function.title}</title>
 <jsp:include page="../header.jsp"></jsp:include>
@@ -48,7 +49,7 @@ if (str != null) {
 </c:if>
 <div id="${pageId }" width="100%">
 	<div class="block" width="100%">
-		<el-form ref="form" :model="fwParam.newData" :rules="rules" label-position="right" label-width="100px" size="mini" @submit.native.prevent>
+		<el-form ref="form" :model="fwParam.newData" inline="true" :rules="rules" label-position="right" label-width="100px" size="mini" @submit.native.prevent>
 			<el-form-item v-for="(col, colIndex) in columns" v-if="col.visible" :label="col.label" :prop="col.id" :key="col.id">
 				<el-switch v-if="col.ui == 'checkbox01'"
 				  v-model="fwParam.newData[col.id]" active-value="1" inactive-value="0"
@@ -71,6 +72,7 @@ if (str != null) {
 					<el-date-picker
 				      v-model="fwParam.newData[col.id]" :placeholder="col.prompt" :disabled="!col.editable"
 				      :type="col.ui"
+				      :value-format="col.ui == 'datetime'?'yyyy-MM-dd HH:mm:ss':'yyyy-MM-dd'"
 				       style="width: 90%;">
 					</el-date-picker>
 				</template>
@@ -85,7 +87,11 @@ if (str != null) {
 			</el-form-item>
 		</el-form>
 	</div>
+	<div id="${pageId}_dialogs"></div>
 </div>
+<c:if test="${'1' == showAsDialog}">
+<div class="TAIL_HERE" />
+</c:if>
 <script>
 var vueOptions = {
 	el:"#${pageId }",
@@ -114,12 +120,12 @@ var vueOptions = {
 		id : '${pageId }',
 		loading : false,
 		title : '${view.title}',
-		opener : <c:if test="${not empty openerId}">vue_${openerId}</c:if>${empty openerId?'null':''}, // opener vue object
+		opener : got.vues['${openerId}'], // opener vue object
 		childId : '${fwParam.openerActionId}', // id for open as dialog
 		isInDialog : ${'1' == showAsDialog},
 		showDialog : false,
-		width : '${width}',
-		height : '${height}',
+		width : '${view.width}',
+		height : '${view.height}',
 		dialogs : {},
 		//===========================================================
 		fwCoord : {
@@ -153,21 +159,25 @@ var vueOptions = {
 			<c:forEach var="dict" items="${view.dictMap}">
 		// \/ \/ \/ ${dict.key} start \/ \/ \/
 				 ${dict.key} : {
-					 <c:forEach var="dictItem" items="${dict.value.itemList}">
-					 	'${dictItem.value}' : '${dictItem.label}',
-					 	<c:if test="${dictItem.value == dict.value.defaultValue }">
-				 		// '' : '${dictItem.label}', /*default value*/
-					 	</c:if>
-					  </c:forEach>
-						 },
-		// /\ /\ /\ ${dict.key} end /\ /\ /\ 
+					<c:forEach var="dictItem" items="${dict.value.itemList}">
+						'${dictItem.value}' : '${dictItem.label}',
+						<c:if test="${dictItem.value == dict.value.defaultValue }">
+						// '' : '${dictItem.label}', /*default value*/
+						</c:if>
 					</c:forEach>
 				},
+		// /\ /\ /\ ${dict.key} end /\ /\ /\ 
+			</c:forEach>
+		},
 		columns : [
 			<c:if test="${view.columns != null }">
 				<c:forEach var="col" items="${view.columns}" varStatus="colStatus">
 					<c:if test="${col.toUser}" >
-						{id:'${col.id}',visible : ${col.visible}, label : '${col.label}', prompt : '${col.prompt}', editable : ${col.editable}, ui : '${col.ui}', multiSelect : ${col.multiSelect}, fromDb : ${col.fromDb}, dictionary : '${col.dictionary}', showColumn : '${col.showColumn}'},
+						{id:'${col.id}',visible : ${col.visible}, label : '${col.label}',
+							fromDb : ${col.fromDb}, dictionary : '${col.dictionary}', showColumn : '${col.showColumn}',
+						prompt : '${col.prompt}', editable : ${col.editable}, ui : '${col.ui}', 
+						multiSelect : ${col.multiSelect}
+						},
 					</c:if>
 				</c:forEach>
 			</c:if>
@@ -207,7 +217,7 @@ var vueOptions = {
 							  click: '${act.click}',
 							  icon: '${act.icon}',
 							  visible: ${act.visible},
-							  enable:  ${act.enable},
+							  enable:  ${act.enable}
 							}
 					</c:forEach>
 					              ],
@@ -218,6 +228,7 @@ var vueOptions = {
 					'${act.id}' : {
 					'icon': '${act.icon }',
 					'label': '${act.label }',
+					'click' : '${act.click }',
 					<c:if test="${not empty act.argument}">
 						<c:forEach items="${act.argument.map}" var="actarg" varStatus="argStatus">
 							'${actarg.key}': '${actarg.value}',
@@ -243,29 +254,35 @@ var vueOptions = {
 			if (this[method]) {
 				this[method](this, data, actionIndex, rowIndex, event);
 			} else {
-				console.info('can not find method ' + method);
+				console.info('_entry can not find method ' + method);
+			}
+		},
+		
+		_format_entry : function(formatter, col, data, rowIndex) {
+			if (this[formatter]) {
+				return this[formatter](data[col], data, rowIndex);
+			} else {
+				console.info('_format_entry can not find format ' + formatter);
+				return data[col];
 			}
 		},
 		<c:forEach var="item" items="${view.clientLogicMap}" varStatus="status">
-		// \/ \/ \/ ${item.key} start \/ \/ \/
-		${item.key} : ${item.value.body},
-		// /\ /\ /\ ${item.key} end /\ /\ /\
-	</c:forEach>
+			// \/ \/ \/ ${item.key} start \/ \/ \/
+			${item.key} : ${item.value.body},
+			// /\ /\ /\ ${item.key} end /\ /\ /\
+		</c:forEach>
 	},
 };
 // 如果是对话框打开，则用对话框ID创建对象，如果是直接打开，则用pageId创建对象
 var vue = null;
 <c:if test="${'1' != showAsDialog}">
 	vue = new Vue(vueOptions);
+	got.vues['${pageId}'] = vue;
 	vue.loadData();
 </c:if>
 if (vueOptions.data.opener) {
 	vueOptions.data.opener.dialogs['${fwParam.openerActionId}'] = {'vue':vue, 'opt':vueOptions};
-	console.debug('opener');
-	console.debug(vueOptions.data.opener);
 }
-//载入数据
-// Vue.config.lang = 'en';
 </script>
 <c:if test="${'1' != showAsDialog}">
 	</body>

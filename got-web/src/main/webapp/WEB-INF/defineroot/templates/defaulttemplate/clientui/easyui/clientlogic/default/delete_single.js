@@ -13,7 +13,7 @@ function(view, data, actionIndex, rowIndex, event) {
 					+ "\r\n";
 		}
 	}
-	confirm("提醒", "确认要删除选中的数据吗？\r\n" + colStr, function(result) {
+	confirm("确认", "确认要删除选中的数据吗？\r\n" + colStr, function(result) {
 		if (result) {
 			// submit
 			var newData = data = $(view.getId("form")).serializeObject();

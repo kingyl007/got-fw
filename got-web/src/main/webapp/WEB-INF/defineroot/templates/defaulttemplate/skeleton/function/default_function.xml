@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <function xmlns="http://www.got-fw.com/schema/function"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.got-fw.com/schema/function http://www.got-fw.com/schema/function/function-1.0.xsd"
 	defaultView="grid">
 	<columns>
 		<column field="_FW_ACTIONS" label="操作" toView="true" visible="true"
@@ -16,7 +14,7 @@
 					sortIndex="30" visible="true" />
 
 				<action id="showPrintInList" label="打印" group="toolsGroup"
-					sortIndex="90" visible="false" />
+					sortIndex="90" toView="false" />
 				<action id="showExportInList" label="导出" group="toolsGroup"
 					sortIndex="100" visible="true" />
 				<action id="showImportInList" label="导入" group="toolsGroup"
@@ -25,8 +23,10 @@
 					sortIndex="120" visible="true" />
 				<action id="searchList" label="搜索" group="searchGrp"
 					sortIndex="10" url="getGridData" />
+                    <!-- 
 				<action id="searchListAdvanced" label="高级搜索" group="searchGrp"
-					sortIndex="20" visible="false" />
+					sortIndex="20" visible="true" />
+                     -->
 				<action id="showCreateInList" label="新建" sortIndex="30"
 					url="saveCreateData" />
 				<action id="showEditInList" label="编辑" group="inList"
@@ -40,45 +40,45 @@
 						showValue="0" showByEmpty="1" showInColumn="false" />
 				</action>
 				<action id="showBatchCreateInList" label="批量新建" group="batchOp"
-					sortIndex="60" visible="false" url="saveBatchCreateData" />
+					sortIndex="60" toView="false" url="saveBatchCreateData" />
 				<action id="showBatchEditInList" label="批量修改" group="batchOp"
-					sortIndex="70" visible="false" url="saveBatchEditData" />
+					sortIndex="70" toView="false" url="saveBatchEditData" />
 				<action id="deleteBatchInList" label="批量删除" group="batchOp"
 					sortIndex="80" url="deleteData" />
 
 
 				<action id="showDetailInGrid" label="详情" group="inList"
-					sortIndex="30" url="getEditData" visible="false" isWorkFlow="true" />
+					sortIndex="30" url="getEditData" toView="false" isWorkFlow="true" />
 				<!-- 与工作流相关的操作，默认是不可见的，由工作流Aop判断是否显示这些按钮 -->
 				<action id="startWorkFlowInGrid" label="提交" sortIndex="100"
-					group="inList" url="startWorkFlow" visible="false" isWorkFlow="true"
+					group="inList" url="startWorkFlow" toView="false" isWorkFlow="true"
 					ignoreAuth="true">
 					<argument showByColumn="_FW_WF_CURRENT_USER_STATUS"
 						showValue="0" showByEmpty="0" setValue="10" showInColumn="false" />
 				</action>
 
 				<action id="recallWorkFlowInGrid" label="撤回" sortIndex="110"
-					group="inList" url="recallWorkFlow" visible="false" isWorkFlow="true"
+					group="inList" url="recallWorkFlow" toView="false" isWorkFlow="true"
 					ignoreAuth="true">
 					<argument showByColumn="_FW_WF_CURRENT_USER_STATUS"
 						showValue="NONE" showByEmpty="0" setValue="10" showInColumn="false" />
 				</action>
 
 				<action id="showWorkFlowCheckInGrid" label="审核" sortIndex="120"
-					group="inList" url="checkWorkFlow" visible="false" isWorkFlow="true"
+					group="inList" url="checkWorkFlow" toView="false" isWorkFlow="true"
 					ignoreAuth="true">
 					<argument showByColumn="_FW_WF_CURRENT_USER_STATUS"
 						showValue="10" showByEmpty="0" setValue="20" showInColumn="false" />
 				</action>
 				<!-- 暂时不考虑批量操作 -->
 				<action id="batchStartWorkFlowInGrid" label="批量提交" group="batchOp"
-					sortIndex="200" url="startWorkFlow" visible="false" isWorkFlow="false"
+					sortIndex="200" url="startWorkFlow" toView="false" isWorkFlow="false"
 					ignoreAuth="true" />
 				<action id="batchRecallWorkFlowInGrid" label="批量撤回" group="batchOp"
-					sortIndex="210" url="recallWorkFlow" visible="false" isWorkFlow="false"
+					sortIndex="210" url="recallWorkFlow" toView="false" isWorkFlow="false"
 					ignoreAuth="true" />
 				<action id="showBatchWorkFlowCheckInGrid" label="批量审核" group="batchOp"
-					sortIndex="220" url="checkWorkFlow" visible="false" isWorkFlow="false"
+					sortIndex="220" url="checkWorkFlow" toView="false" isWorkFlow="false"
 					ignoreAuth="true" />
 			</actions>
 		</grid>
@@ -92,7 +92,7 @@
 				<action id="searchTree" label="搜索" sortIndex="10" group="searchGrp"
 					url="queryTreeData" />
 				<action id="searchAllInTree" label="搜索全部" sortIndex="15"
-					group="searchGrp" visible="false" />
+					group="searchGrp" toView="false" />
 				<action id="showCreateChildInTree" label="新建下级" group="createGrp"
 					sortIndex="20" />
 				<action id="showCreateSiblingInTree" label="新建同级" group="createGrp"
@@ -100,11 +100,11 @@
 				<action id="showEditInTree" label="编辑" sortIndex="40" />
 				<action id="deleteTreeNode" label="删除" sortIndex="50" />
 				<action id="deleteBatchTreeNode" label="批量删除" group="batchOp"
-					sortIndex="60" visible="false" />
+					sortIndex="60" toView="false" />
 				<action id="showExportInTree" label="导出" group="toolsGroup"
-					sortIndex="70" visible="false" />
+					sortIndex="70" toView="false" />
 				<action id="showImportInTree" label="导入" group="toolsGroup"
-					sortIndex="80" visible="false" />
+					sortIndex="80" toView="false" />
 			</actions>
 		</tree>
 		<treeList title="{function}" onQuery="initTreeList">
@@ -141,7 +141,7 @@
 		<create title="{function}新建" onInit="initCreate" width="700"
 			height="450">
 			<columns>
-				<column field="_FW_ACTIONS" visible="false" />
+				<column field="_FW_ACTIONS" toView="false" />
 			</columns>
 			<actions>
 				<action id="saveCreate" label="保存" group="notInDialog" />
@@ -150,7 +150,7 @@
 		</create>
 		<edit title="{function}编辑" onInit="initEdit" width="700" height="450">
 			<columns>
-				<column field="_FW_ACTIONS" visible="false" />
+				<column field="_FW_ACTIONS" toView="false" />
 			</columns>
 			<actions>
 				<action id="saveEdit" label="保存" group="notInDialog" />
@@ -160,13 +160,13 @@
 		<detail title="{function}详情" onInit="initEdit" width="800"
 			height="600">
 			<columns>
-				<column field="_FW_ACTIONS" visible="false" />
+				<column field="_FW_ACTIONS" toView="false" />
 			</columns>
 		</detail>
 		<select title="{function}选择" onQuery="initSelect" width="500"
 			height="480">
 			<columns>
-				<column field="_FW_ACTIONS" visible="false" />
+				<column field="_FW_ACTIONS" toView="false" />
 			</columns>
 			<actions>
 				<action id="searchList" type="searchSelect" label="搜索"
@@ -186,7 +186,7 @@
 				<action id="searchTree" label="搜索" sortIndex="10" group="treeSearchGrp"
 					url="queryTreeData" />
 				<action id="searchAllInTree" label="搜索全部" sortIndex="15"
-					group="treeSearchGrp" visible="false" />
+					group="treeSearchGrp" toView="false" />
 				<action id="showCreateChildInTree" label="新建下级" group="treeCreateGrp"
 					sortIndex="20" />
 				<action id="showCreateSiblingInTree" label="新建同级" group="treeCreateGrp"
@@ -194,11 +194,11 @@
 				<action id="showEditInTree" label="编辑" sortIndex="40" group="tree" />
 				<action id="deleteTreeNode" label="删除" sortIndex="50" group="tree" />
 				<action id="deleteBatchTreeNode" label="批量删除" group="treeBatchOp"
-					sortIndex="60" visible="false" />
+					sortIndex="60" toView="false" />
 				<action id="showExportInTree" label="导出" group="treeToolsGroup"
-					sortIndex="70" visible="false" />
+					sortIndex="70" toView="false" />
 				<action id="showImportInTree" label="导入" group="treeToolsGroup"
-					sortIndex="80" visible="false" />
+					sortIndex="80" toView="false" />
 
 				<!-- grid -->
 				<group id="gridSearchGrp" title="搜索" showDefault="true"
@@ -208,7 +208,7 @@
 					sortIndex="30" visible="true" />
 
 				<action id="showPrintInList" label="打印" group="gridToolsGroup"
-					sortIndex="90" visible="false" />
+					sortIndex="90" toView="false" />
 				<action id="showExportInList" label="导出" group="gridToolsGroup"
 					sortIndex="100" visible="true" />
 				<action id="showImportInList" label="导入" group="gridToolsGroup"
@@ -226,9 +226,9 @@
 				<action id="deleteList" label="删除" group="inList" sortIndex="50"
 					url="deleteData" />
 				<action id="showBatchCreateInList" label="批量新建" group="gridBatchOp"
-					sortIndex="60" visible="false" url="saveBatchCreateData" />
+					sortIndex="60" toView="false" url="saveBatchCreateData" />
 				<action id="showBatchEditInList" label="批量修改" group="gridBatchOp"
-					sortIndex="70" visible="false" url="saveBatchEditData" />
+					sortIndex="70" toView="false" url="saveBatchEditData" />
 				<action id="deleteBatchInList" label="批量删除" group="gridBatchOp"
 					sortIndex="80" url="deleteData" />
 			</actions>
@@ -247,8 +247,15 @@
 		</right>
 
 		<rightList title="{function}" width="600" height="500">
-
+			<actions>
+				<action id="saveSelect" label="保存" group="notInDialog" click="saveRightList"/>
+				<action id="return" label="返回" group="notInDialog" />
+			</actions>
 		</rightList>
+
+		<map>
+
+		</map>
 
 		<report onQuery="initList">
 			<actions>
@@ -278,5 +285,9 @@
 		<selectInMap title="地图上选择" width="800" height="600">
 
 		</selectInMap>
+
+		<advanceQuery title="高级检索" width="500" height="460">
+
+		</advanceQuery>
 	</views>
 </function>

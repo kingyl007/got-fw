@@ -319,8 +319,8 @@ if (view != null) {
     <div data-options="region:'west',title:'${view.treeTitle }',split:true" style="width:20%;">
 	<form id="${pageId}_treeForm" name="treeForm" method="post">
 		<input type="hidden" id="${pageId}_treeProject" name="fwCoord.project" value="${view.coord.project }" /> 
-		<input type="hidden" id="${pageId}_treeFunction" name="fwCoord.function" value="${view.argument.map['treeFunction'] }" /> 
-		<input type="hidden" id="${pageId}_treeView" name="fwCoord.view" value="${view.argument.map['treeView'] }" />
+		<input type="hidden" id="${pageId}_treeFunction" name="fwCoord.function" value="${not empty view.argument.map['treeFunction']?view.argument.map['treeFunction']:view.coord.function }" /> 
+		<input type="hidden" id="${pageId}_treeView" name="fwCoord.view" value="${not empty view.argument.map['treeView']?view.argument.map['treeView']:view.coord.view }" />
 		<input type="hidden" id="${pageId}_treeLang" name="fwCoord.lang" value="${view.coord.lang }" /> 
 		<input type="hidden" id="${pageId}_treeUi" name="fwCoord.ui" value="${view.coord.ui }" />
 		<div width="95%" height="100%">

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<function default="login">
+<function xmlns="http://www.got-fw.com/schema/function"
+	defaultView="login">
 	<columns>
 		<column id="CUSTOMER_ID" label="客户号" type="" required="true" />
 		<column id="USER_ACCOUNT" label="账号2" type="" required="true" />

@@ -21,3 +21,4 @@
 hs_err_pid*
 /got-web/target
 /got-web/src/main/webapp/ui_old
+node_modules

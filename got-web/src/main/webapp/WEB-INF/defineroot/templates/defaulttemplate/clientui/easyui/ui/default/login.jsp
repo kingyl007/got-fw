@@ -126,6 +126,7 @@
 <c:forEach var="act" items="${view.actions}" varStatus="status">
 										<a class="easyui-linkbutton" id="${pageId }_action_${act.id}"
 											iconCls="${act.icon }"
+												style="width:120px;height:60px;"
 											data-options="plain:false,size:'large'"
 											onclick="javascript:${pageId}.${act.click }(${pageId}, null, '${act.id }', null, event)">${act.label }</a>
 </c:forEach>

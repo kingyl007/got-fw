@@ -450,17 +450,23 @@ if (str != null) {
 													ui="easyui-textbox" pattern="${col.pattern }"/>
 											</c:when>
 											<c:when test="${col.ui == 'easyui-filebox' }">
-											<a id="${pageId }_${col.id }_tooltip" href="#" title="" class="easyui-tooltip" >
+												<a id="${pageId }_${col.id }_tooltip" href="#" title="" class="easyui-tooltip" style="text-decoration:none;">
 													<input type="text" id="${pageId }_${col.id }" placeholder="${col.prompt }"
-													name="${col.id }" style="width: ${showAsDialog == '1'?'100':'30'}%;"
-													class="easyui-textbox"
-													data-options="validateOnCreate:false,validateOnBlur:true,novalidate:true,required:${col.required },
-													readonly:true, prompt:'${col.prompt }', onChange: ${pageId }.onFileFieldValueChange"
-													ui="easyui-filebox" />
-													</a>
-													<button onclick="$(${pageId }.getId('${col.id }_file')).trigger('click');return false;">选择文件</button>  
-													 <input type="file" id="${pageId }_${col.id }_file" name="${col.id }_file" onchange="${pageId }.onFileSelected(event, '${col.id }')"   
-											            style="filter:alpha(opacity=0);opacity:0;width: 0px;height: 0px;"/>
+														name="${col.id }" style="width: ${showAsDialog == '1'?'100':'30'}%;"
+														class="easyui-textbox"
+														data-options="validateOnCreate:false,validateOnBlur:true,novalidate:true,required:${col.required },
+														readonly:true, prompt:'${col.prompt }', onChange: ${pageId }.onFileFieldValueChange"
+														ui="easyui-filebox" />
+												</a>
+												<c:if test="${empty FW_IE }">
+													<button type="button" onclick="$(${pageId }.getId('${col.id }_file')).trigger('click');">选择文件</button>
+													<input type="file" id="${pageId }_${col.id }_file" name="${col.id }_file" onchange="${pageId }.onFileSelected(event, '${col.id }')"
+														style="filter:alpha(opacity=0);opacity:0;width: 0px;height: 0px;"/>
+												</c:if>
+												<c:if test="${not empty FW_IE }">
+													<input type="file" id="${pageId }_${col.id }_file" name="${col.id }_file" onchange="${pageId }.onFileSelected(event, '${col.id }')"
+														style="width: 70px;/*filter:alpha(opacity=0);opacity:0;width: 0px;height: 0px;*/"/>
+												</c:if>
 											</c:when>
 											<c:when test="${col.ui == 'ueditor' }">
 												<input type="hidden" id="${pageId }_${col.id }_EDITOR" ui="${col.ui }" />

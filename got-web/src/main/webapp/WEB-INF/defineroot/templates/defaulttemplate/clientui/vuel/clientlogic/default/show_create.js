@@ -42,13 +42,7 @@ function(vue, data, actionIndex, rowIndex, event) {
 	} else {
 		view.loading = true;
 		view.$http.post('getDialog',{fwCoord:localCoord, fwPage:view.fwPage, fwParam:localParam},{emulateJSON: true}).then(function(res){
-			var dialogContext = '<el-dialog id="' + dialogId + '" :title="title" :visible.sync="showDialog" :width="width">';
-			dialogContext += res.data;
-			dialogContext += '<span slot="footer" class="dialog-footer">';
-			dialogContext += '<el-button type="primary" @click="confirmDialog" :loading="loading">确定</el-button>';
-			dialogContext += '<el-button @click="showDialog = false">取消</el-button>';
-			dialogContext += '</span>';
-			dialogContext += '</el-dialog>';
+			var dialogContext = got.addDialogStr(dialogId, res.data);
 			try {
 				$(dialogContext).appendTo($("#" + view.id + "_dialogs"));
 				var vueOpt = view.dialogs[actionIndex].opt;
@@ -73,10 +67,10 @@ function(vue, data, actionIndex, rowIndex, event) {
 		          		dialogView.tableData = res.data.data;
 		          		dialogView.fwPage = res.data.page;
 		          		dialogView.$message({
-		          			type: 'success',
-		          			showClose: true,
 		                title: '提示',
+		                showClose: true,
 		                message: '保存成功',
+		                type: 'success'
 		              });
 		          		view.loadData();
 	          		} else {
@@ -115,6 +109,7 @@ function(vue, data, actionIndex, rowIndex, event) {
 				};
 				var vue = new Vue(vueOpt);
 				view.dialogs[actionIndex].vue = vue;
+				got.vues[vue.id] = vue;
 				dialogView = vue;
 				// load data
 				view.loading = false;

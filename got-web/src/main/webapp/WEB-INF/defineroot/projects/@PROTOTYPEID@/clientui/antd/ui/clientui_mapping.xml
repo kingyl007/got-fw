@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui>
+	<pages>
+        <@PROTOTYPEID@DemoGrid antdPath="projects/@PROTOTYPEID@/demo_grid" />
+	</pages>
+
+	<actions>
+	</actions>
+</ui>

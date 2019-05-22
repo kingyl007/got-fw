@@ -68,55 +68,40 @@ function(view, data, actionIndex, rowIndex, event) {
 							return;
 						}
 						// submit
-						var newData = {};
-						$('input:checkbox').each(function(c) {
-							if (this.id && this.id.indexOf(view.dialogs[dialogName].id) == 0) {
-								if (this.name.indexOf("actions.") == 0 || this.name.indexOf("columns.") == 0 || this.name.indexOf("datalevel.") == 0) {
-									return true;
-								}
-								if (newData[this.name] == null) {
-									newData[this.name] = {};
-								}
-								if (this.id.indexOf('_datalevel_') >= 0) {
-									if (this.checked) {
-										if (newData[this.name]['DATA_LEVEL']) {
-											newData[this.name]['DATA_LEVEL'] = newData[this.name]['DATA_LEVEL'] + "," + this.value;
-										} else {
-											newData[this.name]['DATA_LEVEL'] = this.value;
-										}
-									}
-								} else {
-									newData[this.name]['HAVE_PRIVILEGE'] = (this.checked ? '1' : '0');
-								}
-							}
-						});
 						// console.info($(newData));
 						var postData = view.dialogs[dialogName].buildFormDataObject(view.dialogs[dialogName], viewName);
 						postData["fwParam.newData"] = $(view.dialogs[dialogName].getId("dataForm")).serializeObject();
-						postData["fwParam.oldListData"] = [ view.dialogs[dialogName].data ];
-						postData["fwParam.newListData"] = [ newData ];
+						postData["fwParam.oldListData"] = [ view.dialogs[dialogName].getOldSelectedData() ];
+						postData["fwParam.newListData"] = [ view.dialogs[dialogName].getNewSelectedData() ];
 						showLoading('.window');
 						got.ajax({
 							cache : true,
 							type : "POST",
 							url : "saveSelectData",
-							dataType : "text",
+							dataType : "json",
 							data : postData,
 							async : true,
 							error : function(res, ts, e) {
 								hideLoading('.window');
 								$.messager.alert('提示', "更新错误:" + ts, 'error');
 							},
-							success : function(errorMsg) {
+							success : function(result) {
 								hideLoading('.window');
-								if (errorMsg) {
-									$.messager.alert('提示', "更新错误:" + errorMsg, 'error');
-								} else {
-									$(view.getId(dialogName)).dialog("close");
-									$.remind('提示', '保存成功', "info", 1600);
+								if (result.success) {
 									view.queryGridData();
+									$(view.getId(dialogName)).dialog("close");
+									if (!result.errorMsg) {
+										$.remind('提示', '保存成功', "info", 1600);
+									} else {
+										$.remind('提示', result.errorMsg, "info", 5000);
+									}
+								} else {
+									if (result.errorMsg) {
+										$.messager.alert('提示', result.errorMsg, 'error');
+									} else {
+										$.messager.alert('提示', "更新错误", 'error');
+									}
 								}
-								// return errorMsg;
 							}
 						});
 					}

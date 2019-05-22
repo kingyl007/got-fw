@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui>
+	<views>
+		<main file="default/_entry.jsp" />
+		<login file="default/_entry.jsp" />
+		<select width="500" height="200"/>
+<!-- 
+		<edit file="default/edit.jsp"/>
+		<create file="default/create.jsp"/>
+		
+		<export file="default/export_dialog.jsp" width="35%"/>
+		
+		<import file="default/import_dialog.jsp" width="30%"/>
+
+		<columnManage file="default/column_manage_dialog.jsp" width="40%"/>
+ -->
+	</views>
+	<actions>
+	<!-- 不能与pages里节点同名，否则会覆盖 -->
+		<doLogin icon="icon-role" />
+		<showCreateInList icon="plus" /> 
+		<showEditInList icon="edit" />
+		<deleteList icon="delete" />
+		<showBatchCreateInList icon="plus-square" />
+		<showBatchEditInList icon="diff" />
+		<deleteBatchInList icon="delete" />
+		<showExportInList icon="export" />
+		<showImportInList icon="copy" />
+		<showPrintInList icon="printer" />
+		<searchList icon="search" />
+		<searchListAdvanced icon="search" />
+		
+		<showDetailInGrid icon="icon-tip" />
+		<filterWorkFlow icon="icon-filter" />
+		<startWorkFlowInGrid icon="icon-ok" />
+		<recallWorkFlowInGrid icon="icon-undo" />
+		<showWorkFlowCheckInGrid icon="icon-ok" />
+		<batchStartWorkFlowInGrid icon="icon-ok-all" />
+		<batchRecallWorkFlowInGrid icon="icon-undo-all" />
+		<showBatchWorkFlowCheckInGrid icon="icon-ok" />
+		
+		<showSelect icon="setting" />
+		
+		<showCreateChildInTree icon="plus" />
+		<showCreateSiblingInTree icon="plus-circle" />
+		 
+		<showEditInTree icon="edit" />
+		<deleteTreeNode icon="delete" />
+		<deleteBatchTreeNode icon="delete" />
+		<showExportInTree icon="export" />
+		<showImportInTree icon="copy" />
+		<showPrintInTree icon="printer" />
+		<showColumnManageInList icon="table" />
+		<searchTree icon="search" />
+		
+		<saveCreate icon="save" />
+		<saveEdit icon="save" />
+	</actions>
+	
+	<columns>
+		<DATETIME type="DATETIME" ui="datetime" onFormat="datetimeFormatter" />
+		<TIMESTAMP type="TIMESTAMP(6)" ui="datetime"  onFormat="datetimeFormatter"/>
+		<DATE type="DATE" ui="DatePicker"  onFormat="dateFormatter"/>
+		<MEMO ui="textarea"/>
+		<TREE ui="TreeSelect" />
+		<FILE ui="easyui-filebox" />
+		<TIME ui="easyui-timespinner" />
+		<NUM ui="InputNumber" />
+	</columns>
+	
+	<groups>
+		<searchGrp icon="search" />
+		<batchOp icon="copy" />
+		<toolsGroup icon="setting" />
+	</groups>
+	
+	<icons>
+		<closedGroupCustomer icon="icon-customer-plus" />
+		<openedGroupCustomer icon="icon-customer-plus" />
+		<normalCustomer icon="icon-customer-yellow" />
+		
+		<emptyFolder icon="icon-folder" />
+		<folder icon="icon-folder-add" />
+		<showRole icon="el-icon-setting" />
+		<showRight icon="el-icon-setting" />
+	</icons>
+	
+	<i18n>
+	</i18n>
+	
+	<css>
+		
+	</css>
+</ui>

@@ -7,4 +7,18 @@
 	
 	<deleteList class="default/delete_single.js" />
 	<deleteBatchInList class="default/delete_batch.js" />
+
+	<showExportInList class="default/export.js" />
+	
+	<showImportInList class="default/import.js" />
+	
+	<showSelect class="default/show_select.js" />
+	<initSelect class="default/init_select.js" />
+	
+	<showColumnManageInList class="default/show_column_manage.js" />
+		
+	<!--  Formatters.... -->
+	<datetimeFormatter class="default/formatter/datetime_formatter.js" />
+	<dateFormatter class="default/formatter/date_formatter.js" />
+	<percentFormatter class="default/formatter/percent_formatter.js" />
 </clientlogic>

@@ -17,8 +17,8 @@
 
 <link rel="stylesheet" href="${ctx}/ui/common/css/font-awesome.min.css" />
 
-<script src="${ctx}/ui/vuel/js/Sortable/Sortable.js"></script>
-<script src="${ctx}/ui/vuel/js/vuedraggable.js"></script>
+<script src="${ctx}/ui/vuel/sortable/1.7.0/Sortable.min.js"></script>
+<script src="${ctx}/ui/vuel/vuedraggable/2.15.0/vuedraggable.min.js"></script>
 
 <script type="text/javascript" src="${ctx}/ui/vuel/got/got.js"></script>
 

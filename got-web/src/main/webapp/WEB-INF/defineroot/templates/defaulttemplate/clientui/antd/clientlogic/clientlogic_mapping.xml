@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clientlogic>
+	<default class="fw/default/_default" />
+	<showMain class="fw/default/show_main" />
+	<doLogin class="fw/default/login" />
+	<initList class="fw/default/init_list" />
+	<searchList class="fw/default/query_grid" />
+	<showPrintInList class="fw/default/_default" />
+	<showExportInList class="fw/default/export" />
+	
+	<getImportTemplateInList class="fw/default/get_import_template" />
+	<showImportInList class="fw/default/import" />
+	<import class="fw/default/import" />
+	
+	<showColumnManageInList class="fw/default/show_column_manage" />
+	<showAdvanceQueryInList class="fw/default/show_advance_query" />
+	<showChangePassword class="fw/default/show_change_password" />
+	
+	<showCreateInList class="fw/default/show_create" />
+	<initCreate class="fw/default/init_create" />
+	<saveCreate class="fw/default/save_create" />
+	<showBatchCreateInList class="fw/default/show_batch_create" />
+	
+	<showEditInList class="fw/default/show_edit" />
+	<initEdit class="fw/default/init_edit" />
+	<saveEdit class="fw/default/save_edit" />
+	<showBatchEditInList class="fw/default/show_batch_edit" />
+	
+	<deleteList class="fw/default/delete_single" />
+	<deleteBatchInList class="fw/default/delete_batch" />
+	
+	<showDetailInGrid class="fw/default/show_detail" />
+	<showMap class="fw/default/show_map" />
+	
+	<startWorkFlowInGrid class="workflow/start_work_flow_in_grid" />
+	<recallWorkFlowInGrid class="workflow/recall_work_flow_in_grid" />
+	<showWorkFlowCheckInGrid class="workflow/show_work_flow_check_in_grid" />
+	<batchStartWorkFlowInGrid class="workflow/batch_start_work_flow_in_grid" />
+	<batchRecallWorkFlowInGrid class="workflow/batch_recall_work_flow_in_grid" />
+	<showBatchWorkFlowCheckInGrid class="workflow/show_batch_work_flow_check_in_grid" />
+	<processTodoInGrid class="workflow/process_todo_in_grid" />
+	
+	<initTree class="fw/default/init_tree" />
+	<showCreateSiblingInTree class="fw/default/show_create_sibling_in_tree" />
+	<showCreateChildInTree class="fw/default/show_create_child_in_tree" />
+	<expandTreeNode class="fw/default/expand_tree_node" />
+	<searchTree class="fw/default/init_tree" />
+	<searchAllInTree class="fw/default/search_all_in_tree" />
+	<showEditInTree class="fw/default/show_edit_in_tree" />
+	<deleteTreeNode class="fw/default/delete_single_in_tree" />
+	<deleteBatchTreeNode class="fw/default/_default" />
+	<showExportInTree class="fw/default/_default" />
+	<showImportInTree class="fw/default/_default" />
+	
+	<initTreeList class="fw/default/init_treelist" />
+	
+	<showSelect class="fw/default/show_select" />
+	<initSelect class="fw/default/init_select" />
+	
+	<showSelectInMap class="fw/default/show_select_in_map" />
+	
+	<changeOneColumn class="fw/default/direct_edit_and_save" />
+	
+	<showRightList class="right/show_rightlist" />
+	<saveRightList class="fw/default/save_rightList" />
+	
+	<initTreegrid class="fw/default/init_treegrid" />
+	<saveSelect class="fw/default/save_select" />
+	
+	<!--  Formatters.... -->
+	<datetimeFormatter class="fw/default/formatter/datetime_formatter" />
+	<dateFormatter class="fw/default/formatter/date_formatter" />
+	<percentFormatter class="fw/default/formatter/percent_formatter" />
+	
+	<!-- Validator  -->
+	<demoValidator class="fw/default/validator/demo_validator" />
+	
+</clientlogic>

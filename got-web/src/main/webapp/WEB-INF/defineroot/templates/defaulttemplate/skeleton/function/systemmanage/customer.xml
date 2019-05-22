@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<function xmlns="http://www.got-fw.com/schema/function"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.got-fw.com/schema/function http://www.got-fw.com/schema/function/function-1.0.xsd"
-	ref="default_function" title="账号" defaultView="grid" bizService="customerBizService">
+<function xmlns="http://www.got-fw.com/schema/function" ref="default_function"
+	title="账号" defaultView="grid" bizService="customerBizService">
 	<table name="CUSTOMER" customerIdCol="PARENT_ID" />
 	<joins>
 		<join name="CUSTOMER_ADMIN" type="LEFT" alias="CA"
@@ -18,24 +16,19 @@
 			</columns>
 		</join>
 	</joins>
-	<columns visible="false" toUser="false">
+	<columns>
 		<column id="CUSTOMER_ID" autoKey="CUSTOMER_SEQ" />
-		<column id="PARENT_ID" label="上级账号" visible="false" type="TREE"
-			sortIndex="20">
+		<column id="PARENT_ID" label="上级账号" type="TREE" sortIndex="20"
+			toUser="false">
 			<valueref function="customer" view="tree" />
 		</column>
-		<column id="CUSTOMER_NAME" label="名称" visible="true" toUser="true"
-			unique="G" required="true" sortIndex="10" />
-		<column id="ADDRESS" sortIndex="60" label="地址" visible="true"
-			toUser="true" />
-		<column id="LINKMAN" sortIndex="80" label="联系人" visible="true"
-			toUser="true" />
-		<column id="TELEPHONE" sortIndex="90" label="电话" visible="true"
-			toUser="true" />
-		<column id="FAX" sortIndex="100" label="传真" visible="true"
-			toUser="true" />
-		<column id="MEMO" sortIndex="140" label="备注" visible="true"
-			toUser="true" />
+		<column id="CUSTOMER_NAME" label="名称" toUser="true" unique="G"
+			required="true" sortIndex="10" />
+		<column id="ADDRESS" sortIndex="60" label="地址" />
+		<column id="LINKMAN" sortIndex="80" label="联系人" />
+		<column id="TELEPHONE" sortIndex="90" label="电话" />
+		<column id="FAX" sortIndex="100" label="传真" />
+		<column id="MEMO" sortIndex="140" label="备注" />
 	</columns>
 	<views>
 		<grid>
@@ -53,9 +46,9 @@
 		</tree>
 		<create>
 			<columns>
-				<column id="PARENT_ID" visible="true" toUser="true" />
-				<column id="USER_ROLE" label="角色" visible="true" editable="true"
-					fromDb="false" sortIndex="50" toDb="false">
+				<column id="PARENT_ID" />
+				<column id="USER_ROLE" label="角色" fromDb="false" sortIndex="50"
+					toDb="false">
 					<valueref function="role" view="select" label="ROLE_NAME"
 						value="ROLE_ID" />
 				</column>
@@ -64,10 +57,10 @@
 		</create>
 		<edit>
 			<columns>
-				<column id="PARENT_ID" visible="true" toUser="true" />
+				<column id="PARENT_ID" />
 				<column field="USER_ACCOUNT" editable="false" />
-				<column id="USER_ROLE" label="角色" visible="true" editable="true"
-					fromDb="false" sortIndex="50" toDb="false">
+				<column id="USER_ROLE" label="角色" editable="true" fromDb="false"
+					sortIndex="50" toDb="false">
 					<valueref function="role" view="select" label="ROLE_NAME"
 						value="ROLE_ID" />
 				</column>

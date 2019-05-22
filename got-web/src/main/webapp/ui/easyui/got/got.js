@@ -139,7 +139,6 @@ var got = {
 	},
 	
 	getNumberStr : function(val, decimalSize) {
-		console.info('getNumberStr');
 		 var f = parseFloat(val); 
      if (!isNaN(f) && (decimalSize === 0 || decimalSize > 0)) {
     	 var power = Math.pow(10, decimalSize);
@@ -632,7 +631,7 @@ if ($.fn.validatebox) {
 					param[2] = param[0];
 				} else {
 					if (param[1] > 0) {
-						reg = new RegExp("^[0-9]+(.[0-9]{1,"+param[1]+"})?$","gi");
+						reg = new RegExp("^[\-|0-9]+(.[0-9]{1,"+param[1]+"})?$","gi");
 						param[2] = '最大'+param[1]+'位小数';
 					} else {
 						reg = new RegExp("^[0-9]*$","gi");

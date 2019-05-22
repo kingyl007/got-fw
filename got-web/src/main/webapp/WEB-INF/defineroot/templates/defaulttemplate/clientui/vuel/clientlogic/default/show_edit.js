@@ -5,12 +5,12 @@ function(vue, data, actionIndex, rowIndex, event) {
 	// 加载数据
 	/*
 	this.$confirm('确认关闭？')
-  .then(function() {
-    done();
-  }).catch(function() {
-  	console.info('do cancel');
-  });
-  */
+.then(function() {
+	done();
+}).catch(function() {
+	console.info('do cancel');
+});
+*/
 	var localCoord = got.removeNoUseData(view.fwCoord);
 	localCoord.view = 'edit';
 	var localParam = got.removeNoUseData(view.fwParam);
@@ -31,7 +31,14 @@ function(vue, data, actionIndex, rowIndex, event) {
 			vueObj.fwParam.newData = got.removeNoUseData(res.data);
 			successProc();
 		},function(){
-				console.log('failed');
+			console.log('failed');
+			view.$message({
+				type: 'error',
+				showClose: true,
+				title: '提示',
+				message: '数据加载错误',
+			});
+			view.loading = false;
 		});
 	};
 	if (view.dialogs[actionIndex] && view.dialogs[actionIndex].vue) {
@@ -42,13 +49,7 @@ function(vue, data, actionIndex, rowIndex, event) {
 	} else {
 		view.loading = true;
 		view.$http.post('getDialog',{fwCoord:localCoord, fwPage:view.fwPage, fwParam:localParam},{emulateJSON: true}).then(function(res){
-			var dialogContext = '<el-dialog id="' + dialogId + '" :title="title" :visible.sync="showDialog" :width="width">';
-			dialogContext += res.data;
-			dialogContext += '<span slot="footer" class="dialog-footer">';
-			dialogContext += '<el-button type="primary" @click="confirmDialog" :loading="loading">确定</el-button>';
-			dialogContext += '<el-button @click="showDialog = false">取消</el-button>';
-			dialogContext += '</span>';
-			dialogContext += '</el-dialog>';
+			var dialogContext = got.addDialogStr(dialogId, res.data);
 			try {
 				$(dialogContext).appendTo($("#" + view.id + "_dialogs"));
 				var vueOpt = view.dialogs[actionIndex].opt;
@@ -63,58 +64,59 @@ function(vue, data, actionIndex, rowIndex, event) {
 						});
 					});
 					dialogView.$refs['form'].validate(function(valid) {
-	          if (valid) {
-	          	dialogView.loading = true;
-	          	dialogView.$http.post('saveEditData',{fwCoord:dialogView.fwCoord, fwPage:dialogView.fwPage, fwParam:dialogView.fwParam},{emulateJSON: true}).then(function(res){
-	          	dialogView.loading = false;
-	          		console.info(res);
-	          		if (res.data.success) {
-	          			dialogView.showDialog = false;
-		          		dialogView.tableData = res.data.data;
-		          		dialogView.fwPage = res.data.page;
-		          		dialogView.$message({
-		                title: '提示',
-		                showClose: true,
-		                message: '保存成功',
-		                type: 'success'
-		              });
-		          		view.loadData();
-	          		} else {
-	          			if (res.data.validResultMap) {
-	          				$.each(res.data.validResultMap, function(k) {
-	          					var rules = dialogView.rules[k];
-	          					$.each(rules, function(index, rule) {
-	          						if (rule.hasOwnProperty('msg')) {
-	          							rule['msg'] = res.data.validResultMap[k];
-	          							return false;
-	          						}
-	          					});
-	          				});
-	          				dialogView.$refs['form'].validate();
-	          			}
-		          		dialogView.$message({
-		          			type: 'error',
-		          			showClose: true,
-		                title: '提示',
-		                message: '保存错误:' + res.data.errorMsg,
-		              });
-	          		}
-	          	},function(){
-	          		dialogView.loading = false;
-	          		dialogView.$message({
-	          			type: 'error',
-	          			showClose: true,
-	                title: '提示',
-	                message: '保存错误',
-	              });
-	          	});
-	          } else {
-	            return false;
-	          }
-	        });
+						if (valid) {
+							dialogView.loading = true;
+							dialogView.$http.post('saveEditData',{fwCoord:dialogView.fwCoord, fwPage:dialogView.fwPage, fwParam:dialogView.fwParam},{emulateJSON: true}).then(function(res){
+							dialogView.loading = false;
+								console.info(res);
+								if (res.data.success) {
+									dialogView.showDialog = false;
+									dialogView.tableData = res.data.data;
+									dialogView.fwPage = res.data.page;
+									dialogView.$message({
+									title: '提示',
+									showClose: true,
+									message: '保存成功',
+									type: 'success'
+								});
+									view.loadData();
+								} else {
+									if (res.data.validResultMap) {
+										$.each(res.data.validResultMap, function(k) {
+											var rules = dialogView.rules[k];
+											$.each(rules, function(index, rule) {
+												if (rule.hasOwnProperty('msg')) {
+													rule['msg'] = res.data.validResultMap[k];
+													return false;
+												}
+											});
+										});
+										dialogView.$refs['form'].validate();
+									}
+									dialogView.$message({
+										type: 'error',
+										showClose: true,
+										title: '提示',
+										message: '保存错误:' + res.data.errorMsg,
+									});
+								}
+							},function(){
+								dialogView.loading = false;
+								dialogView.$message({
+									type: 'error',
+									showClose: true,
+									title: '提示',
+									message: '保存错误',
+								});
+							});
+						} else {
+							return false;
+						}
+					});
 				};
 				var vue = new Vue(vueOpt);
 				view.dialogs[actionIndex].vue = vue;
+				got.vues[vue.id] = vue;
 				dialogView = vue;
 				// load data
 				view.loading = false;
@@ -127,9 +129,9 @@ function(vue, data, actionIndex, rowIndex, event) {
 				view.$message({
 					type: 'error',
 					showClose: true,
-          title: '提示',
-          message: '画面加载错误',
-        });
+					title: '提示',
+					message: '画面加载错误',
+				});
 				view.loading = false;
 			}
 		},function(){

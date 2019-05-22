@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <function xmlns="http://www.got-fw.com/schema/function"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.got-fw.com/schema/function http://www.got-fw.com/schema/function/function-1.0.xsd"
 	ref="demo_function" title="演示功能" defaultView="grid">
-	<table name="DEMO_DEMO" />
+	<table name="demo_DEMO" />
 	<joins>
 		<join name="GOT_USER" type="INNER" alias="U" joinConditions="U.ID=MAIN.USER_ID">
 			<columns>

@@ -101,21 +101,29 @@ function(view, data, actionIndex, rowIndex, event) {
 							cache : true,
 							type : "POST",
 							url : "saveSelectData",
-							dataType : "text",
+							dataType : "json",
 							data : postData,
 							async : false,
 							error : function(res, ts, e) {
 								$.messager.alert('提示', "更新错误:" + ts, 'error');
 							},
-							success : function(errorMsg) {
-								if (errorMsg) {
-									$.messager.alert('提示', "更新错误:" + errorMsg, 'error');
-								} else {
-									$(view.getId(dialogName)).dialog("close");
-									$.remind('提示', '保存成功', "info", 1600);
+							success : function(result) {
+								hideLoading('.window');
+								if (result.success) {
 									view.queryGridData();
+									$(view.getId(dialogName)).dialog("close");
+									if (!result.errorMsg) {
+										$.remind('提示', '保存成功', "info", 1600);
+									} else {
+										$.remind('提示', result.errorMsg, "info", 5000);
+									}
+								} else {
+									if (result.errorMsg) {
+										$.messager.alert('提示', result.errorMsg, 'error');
+									} else {
+										$.messager.alert('提示', "更新错误", 'error');
+									}
 								}
-								// return errorMsg;
 							}
 						});
 					}
